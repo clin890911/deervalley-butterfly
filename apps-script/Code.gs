@@ -17,6 +17,9 @@ const FOLDER_ID = "PASTE_YOUR_FOLDER_ID_HERE";    // Drive 資料夾網址 .../f
 const SHEET_NAME = "";
 
 function doPost(e) {
+  // 併發鎖：避免多人同時送出時 appendRow 競爭寫入
+  const lock = LockService.getScriptLock();
+  try { lock.waitLock(20000); } catch (lockErr) { return json({ ok: false, error: "系統忙碌，請稍後再試" }); }
   try {
     const body = JSON.parse(e.postData.contents);
     const name  = (body.name  || "").toString().trim();
@@ -56,6 +59,8 @@ function doPost(e) {
 
   } catch (err) {
     return json({ ok: false, error: String(err) });
+  } finally {
+    lock.releaseLock();
   }
 }
 
