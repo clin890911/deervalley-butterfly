@@ -47,17 +47,18 @@
 
   /* ===== 頁首 ===== */
   .hero { text-align: center; padding: 8px 6px 20px; color: var(--cream); }
-  .brand-logo {
-    width: 84px; height: 84px; display: block; margin: 0 auto 2px;
-    filter: drop-shadow(0 2px 8px rgba(0,0,0,.35));
+  .brand { line-height: 1; }
+  .brand-zh {
+    display: block;
+    font-family: "Songti TC", "Noto Serif CJK TC", "Noto Serif TC", serif;
+    font-size: 33px; font-weight: 700; letter-spacing: 12px;
+    color: var(--cream); text-shadow: 0 2px 12px rgba(0,0,0,.45);
+    padding-left: 12px; /* 補償 letter-spacing 造成的右偏，使其視覺置中 */
   }
-  .brand {
-    font-size: 15px; font-weight: 700; letter-spacing: 3px; color: var(--cream);
-    text-shadow: 0 1px 6px rgba(0,0,0,.35);
-  }
-  .brand span {
-    display: block; font-size: 9.5px; letter-spacing: 4px; font-weight: 500;
-    color: var(--gold); margin-top: 3px;
+  .brand-en {
+    display: block; margin-top: 9px;
+    font-size: 11px; letter-spacing: 6px; font-weight: 600;
+    color: var(--gold); padding-left: 6px;
   }
   .hero h1 {
     margin: 16px 0 8px; font-size: 26px; letter-spacing: 3px; font-weight: 700;
@@ -289,7 +290,10 @@
 
   <div class="wrap">
     <header class="hero">
-      <img class="brand-logo" src="assets/logo-white.png" alt="鹿芝谷 Deer Valley" />
+      <div class="brand">
+        <span class="brand-zh">鹿芝谷</span>
+        <span class="brand-en">DEER VALLEY</span>
+      </div>
       <h1>蝴蝶拍攝比賽</h1>
       <p class="lede" id="lede">拍下你眼中的蝴蝶，上傳作品參加比賽</p>
       <div class="gold-rule"></div>
