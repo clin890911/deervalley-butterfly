@@ -23,6 +23,8 @@ function doPost(e) {
     const name  = (body.name  || "").toString().trim();
     const phone = (body.phone || "").toString().trim();
     const photo = (body.photo || "").toString();
+    const postLink = (body.postLink || "").toString().trim();  // 發文連結（選填）
+    const message  = (body.message  || "").toString().trim();  // 給鹿芝谷的話（選填）
 
     if (!name || !phone || !photo) {
       return json({ ok: false, error: "缺少必要欄位" });
@@ -45,7 +47,7 @@ function doPost(e) {
 
     // --- 2. 寫一列進試算表（電話以純文字寫入，保留開頭 0，避免被當數字） ---
     const sheet = getSheet();
-    sheet.appendRow([new Date(), name, phone, photoUrl]);
+    sheet.appendRow([new Date(), name, phone, photoUrl, postLink, message]);
     sheet.getRange(sheet.getLastRow(), 3).setNumberFormat("@").setValue(phone);
 
     // --- 3. 回傳成功 ---
@@ -63,7 +65,7 @@ function getSheet() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   if (!ss) throw new Error("找不到綁定的試算表；請從試算表的「擴充功能 → Apps Script」建立此腳本");
   const sheet = ss.getSheets()[0];
-  if (sheet.getLastRow() === 0) sheet.appendRow(["時間", "姓名", "電話", "照片連結"]);
+  if (sheet.getLastRow() === 0) sheet.appendRow(["時間", "姓名", "電話", "照片連結", "發文連結", "給鹿芝谷的話"]);
   return sheet;
 }
 

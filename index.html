@@ -91,6 +91,8 @@
   }
   .input::placeholder { color: #b3b9b1; }
   .input:focus { border-color: var(--mist); box-shadow: 0 0 0 3px rgba(107,143,122,.2); }
+  textarea.input { resize: vertical; min-height: 62px; line-height: 1.6; font-family: inherit; }
+  .field label .opt { color: var(--muted); font-weight: 400; font-size: 12px; margin-left: 5px; }
 
   /* ===== 照片上傳 ===== */
   .photo-box {
@@ -116,6 +118,33 @@
     background: rgba(47,74,60,.92); color:#fff; font-size:12px;
     padding: 5px 11px; border-radius: 999px; font-weight:600; letter-spacing: .3px;
   }
+
+  /* ===== 活動資訊 ===== */
+  .event {
+    background: rgba(250,248,242,.96);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 18px; padding: 20px 18px 6px; margin-bottom: 16px;
+    box-shadow: 0 14px 34px rgba(15,28,20,.28);
+  }
+  .event-lead { margin: 0 0 12px; font-size: 14px; line-height: 1.95; color: #3a463d; letter-spacing: .3px; }
+  .ev-block { border-top: 1px solid var(--border); }
+  .ev-block > summary {
+    list-style: none; cursor: pointer; padding: 13px 2px;
+    font-size: 15px; font-weight: 700; color: var(--forest);
+    display: flex; align-items: center; gap: 9px;
+  }
+  .ev-block > summary::-webkit-details-marker { display: none; }
+  .ev-block > summary::before { content: ""; width: 4px; height: 15px; border-radius: 2px; background: var(--gold); flex: 0 0 auto; }
+  .ev-block > summary::after { content: "＋"; margin-left: auto; color: var(--mist); font-weight: 400; font-size: 17px; }
+  .ev-block[open] > summary::after { content: "－"; }
+  .ev-body { padding: 0 2px 14px; font-size: 13px; line-height: 1.85; color: #4a5650; }
+  .ev-body p { margin: 0 0 8px; }
+  .ev-body b { color: var(--ink); }
+  .ev-body ol { margin: 6px 0 0; padding-left: 20px; }
+  .ev-body ol li { margin-bottom: 7px; }
+  .ev-body .prize { padding: 9px 11px; background: #f2f6f0; border-radius: 9px; margin-bottom: 8px; }
+  .ev-body .prize b { color: var(--forest); }
 
   /* ===== 個資同意 ===== */
   .consent {
@@ -262,6 +291,44 @@
       <div class="gold-rule"></div>
     </header>
 
+    <!-- 活動資訊 -->
+    <section class="event" id="eventInfo">
+      <p class="event-lead">當紫斑蝶展開翅膀，山林也跟著染上流動的光影。邀請你拿起相機，捕捉牠們停駐、飛舞與穿越花間的瞬間，將眼中最美的紫色風景，留在一張照片裡。這一次，讓我們用鏡頭記錄自然，也用影像分享感動。</p>
+
+      <details class="ev-block" open>
+        <summary>活動資訊</summary>
+        <div class="ev-body">
+          <p><b>活動期間</b>：即日起至 2026 年 8 月 31 日止。</p>
+          <p><b>活動對象</b>：一般遊客、親子、攝影愛好者（免費參與，無報名上限）。</p>
+          <p><b>現場互動獎勵</b>：於園區現場拍照留念，發布貼文或限時動態並標註鹿芝谷官方帳號，至售票櫃台出示紀錄，每人即可領取可愛鑰匙圈乙個（數量有限，送完為止）。</p>
+        </div>
+      </details>
+
+      <details class="ev-block">
+        <summary>獎項資訊</summary>
+        <div class="ev-body">
+          <div class="prize"><b>飛舞之眼金獎</b>（1 名）<br>現金 NT$5,000 ＋ 豪華紀念禮包 ＋ 參與獎狀</div>
+          <div class="prize"><b>自然美感獎</b>（2 名）<br>現金 NT$2,000 ＋ 豐富紀念禮包 ＋ 參與獎狀</div>
+          <div class="prize"><b>社群人氣獎</b>（1 名）<br>主辦單位將於官方 Instagram 精選動態開放投票，獲點讚愛心數最多之照片，可獲得精美紀念禮包 ＋ 參與獎狀。</div>
+        </div>
+      </details>
+
+      <details class="ev-block">
+        <summary>得獎公布與注意事項</summary>
+        <div class="ev-body">
+          <p><b>公布時間</b>：2026 年 9 月 15 日（二）11:00 am，公布於鹿芝谷官方 Facebook、Instagram 及 Threads。</p>
+          <p><b>活動注意事項</b>：</p>
+          <ol>
+            <li>每位參加者限得獎一次。若重複投稿或使用相同作品，僅計入一筆紀錄。</li>
+            <li>參賽作品須為 2026 年於鹿芝谷園區內實地拍攝。參賽者須保留原始圖檔，嚴禁盜用他人作品或使用 AI 合成，經查證屬實將取消參賽與得獎資格。</li>
+            <li>所有參賽作品僅限非商業用途使用。</li>
+            <li>得獎者須提供身分證件影本及完整聯絡資訊，並依規定完成稅務與資料確認程序後方可領獎。</li>
+            <li>本活動僅限台灣地區收件與郵寄，恕不寄送至海外。</li>
+          </ol>
+        </div>
+      </details>
+    </section>
+
     <!-- 表單 -->
     <div class="card" id="formCard">
       <div class="field">
@@ -291,14 +358,24 @@
         </div>
       </div>
 
+      <div class="field">
+        <label for="postLink">發文連結<span class="opt">選填</span></label>
+        <input class="input" id="postLink" type="url" inputmode="url" placeholder="貼上你的貼文／限動連結（IG、FB、Threads…）" autocomplete="off" />
+      </div>
+
+      <div class="field">
+        <label for="message">留給鹿芝谷的一句話<span class="opt">選填</span></label>
+        <textarea class="input" id="message" rows="2" placeholder="想對鹿芝谷說的話"></textarea>
+      </div>
+
       <div class="consent">
         <input type="checkbox" id="consent" />
         <label for="consent">我同意主辦單位（鹿芝谷）為活動聯繫與得獎通知之目的，蒐集及使用我的姓名與電話。</label>
       </div>
       <details class="terms">
-        <summary>活動辦法與個人資料告知</summary>
+        <summary>個人資料告知</summary>
         <div class="terms-body">
-          （此處放正式活動辦法與個資告知條文，例如：蒐集目的、保存期限、參賽者權利、聯絡方式等。待主辦單位提供後填入。）
+          你所填寫的姓名與電話，僅供主辦單位（鹿芝谷）於本活動之聯繫與得獎通知使用，保存至活動結束後依規定銷毀，不作其他用途。完整活動辦法與注意事項請見上方「活動資訊」。
         </div>
       </details>
 
@@ -364,6 +441,7 @@
 <script>
   const $ = (id) => document.getElementById(id);
   const nameEl = $("name"), phoneEl = $("phone"), photoEl = $("photo"), consentEl = $("consent");
+  const postEl = $("postLink"), msgEl = $("message");
   const submitBtn = $("submitBtn"), errEl = $("err");
   const photoBox = $("photoBox"), preview = $("preview");
   const previewImg = $("previewImg"), previewMeta = $("previewMeta");
@@ -436,7 +514,7 @@
     errEl.style.display = "none";
     setLoading(true);
 
-    const payload = { name: nameEl.value.trim(), phone: phoneEl.value.trim(), photo: compressedDataUrl, ua: navigator.userAgent };
+    const payload = { name: nameEl.value.trim(), phone: phoneEl.value.trim(), photo: compressedDataUrl, postLink: postEl.value.trim(), message: msgEl.value.trim(), ua: navigator.userAgent };
 
     if (!BACKEND_READY) {  // demo 模式：模擬成功，方便完整測試流程
       setTimeout(() => { saveSubmission(payload); showDone(); }, 900);
@@ -473,6 +551,7 @@
       alert("（Demo）此處將連到你的 LINE 官方帳號加好友頁。\n請在 index.html 最上方填入 LINE_URL。");
     };
     $("formCard").style.display = "none";
+    $("eventInfo").style.display = "none";
     $("lede").style.display = "none";
     $("doneCard").style.display = "block";
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -481,10 +560,13 @@
   // ===== 再登記一位：重設表單 =====
   function resetForm() {
     nameEl.value = ""; phoneEl.value = ""; photoEl.value = "";
+    postEl.value = ""; msgEl.value = "";
     consentEl.checked = false; compressedDataUrl = null;
     preview.style.display = "none"; photoBox.style.display = "flex";
     errEl.style.display = "none";
+    submitBtn.innerHTML = "送出參賽作品";
     $("doneCard").style.display = "none";
+    $("eventInfo").style.display = "";
     $("lede").style.display = "";
     $("formCard").style.display = "block";
     refresh();
