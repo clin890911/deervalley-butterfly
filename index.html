@@ -2,8 +2,21 @@
 <html lang="zh-Hant">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>鹿芝谷蝴蝶拍攝比賽 — 作品上傳</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+<title>蝶影 · 2026 紫斑蝶攝影競賽 — 鹿芝谷</title>
+<meta name="description" content="鹿芝谷 2026 紫斑蝶攝影競賽「蝶影」。拍下你眼中的紫色風景，上傳作品參加比賽。" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<!-- 分享預覽（LINE／FB／社群） -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="蝶影 · 2026 紫斑蝶攝影競賽 — 鹿芝谷" />
+<meta property="og:description" content="拍下你眼中的紫色風景，上傳作品參加比賽。" />
+<meta property="og:image" content="https://clin890911.github.io/deervalley-butterfly/assets/og.jpg" />
+<meta property="og:url" content="https://clin890911.github.io/deervalley-butterfly/" />
+<meta name="twitter:card" content="summary_large_image" />
+<!-- 思源宋體（僅標題固定字，子集化，載入極小） -->
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&display=swap&text=鹿芝谷紫斑蝶攝影競賽活動資訊獎項得公布與注意事登記完成感謝參加飛舞之眼金自然美社群人氣蝶影，DEERVALLEY2026" rel="stylesheet" />
 <style>
   /* ===== 鹿芝谷 · 低調高級 · 手機優先 ===== */
   :root {
@@ -20,6 +33,9 @@
     --line: #06c755;
     --line-dark: #05a648;
     --danger: #c1483f;
+    --serif: "Noto Serif TC", "Songti TC", "Noto Serif CJK TC", serif;
+    --shadow-card: 0 20px 48px rgba(15,28,20,.30);
+    --hair: rgba(201,162,75,.55); /* 金色細線 */
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; }
@@ -51,41 +67,45 @@
     box-shadow: 0 14px 34px rgba(0,0,0,.3);
   }
 
-  /* ===== 頁首 ===== */
-  .hero { text-align: center; padding: 8px 6px 20px; color: var(--cream); }
+  /* ===== 刊頭 masthead ===== */
+  .hero { text-align: center; padding: 4px 6px 22px; color: var(--cream); }
   .brand { line-height: 1; }
   .brand-zh {
-    display: block;
-    font-family: "Songti TC", "Noto Serif CJK TC", "Noto Serif TC", serif;
-    font-size: 33px; font-weight: 700; letter-spacing: 12px;
-    color: var(--cream); text-shadow: 0 2px 12px rgba(0,0,0,.45);
-    padding-left: 12px; /* 補償 letter-spacing 造成的右偏，使其視覺置中 */
+    display: block; font-family: var(--serif);
+    font-size: 30px; font-weight: 600; letter-spacing: 14px;
+    color: var(--cream); text-shadow: 0 2px 14px rgba(0,0,0,.42);
+    padding-left: 14px; /* 補償 letter-spacing 右偏，視覺置中 */
   }
   .brand-en {
-    display: block; margin-top: 9px;
-    font-size: 11px; letter-spacing: 6px; font-weight: 600;
-    color: var(--gold); padding-left: 6px;
+    display: block; margin-top: 11px;
+    font-size: 10.5px; letter-spacing: 7px; font-weight: 600; color: var(--gold);
+    padding-left: 7px;
   }
-  .hero h1 {
-    margin: 16px 0 8px; font-size: 26px; letter-spacing: 3px; font-weight: 700;
-    color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,.45);
+  .hero-rule {
+    display: flex; align-items: center; justify-content: center; gap: 12px;
+    margin: 18px auto 15px; max-width: 250px;
+  }
+  .hero-rule::before, .hero-rule::after {
+    content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--hair));
+  }
+  .hero-rule::after { background: linear-gradient(90deg, var(--hair), transparent); }
+  .hero-rule .diamond { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); flex: 0 0 auto; }
+  .event-name {
+    margin: 0; font-family: var(--serif); font-size: 19px; font-weight: 600; letter-spacing: 5px;
+    color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.4);
   }
   .hero .lede {
-    margin: 0; font-size: 14px; color: rgba(244,239,228,.9); letter-spacing: .5px;
-    text-shadow: 0 1px 8px rgba(0,0,0,.4);
-  }
-  .gold-rule {
-    width: 46px; height: 2px; margin: 14px auto 0;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 12px auto 0; font-size: 13.5px; color: rgba(244,239,228,.82); letter-spacing: 1px;
+    text-shadow: 0 1px 8px rgba(0,0,0,.4); max-width: 300px; line-height: 1.7;
   }
 
   /* ===== 卡片 ===== */
   .card {
-    background: rgba(250,248,242,.96);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,.5);
-    border-radius: 18px; padding: 24px 18px 24px;
-    box-shadow: 0 18px 44px rgba(15,28,20,.34);
+    position: relative;
+    background: linear-gradient(180deg, #faf8f2 0%, #f4efe4 100%);
+    border: 1px solid rgba(255,255,255,.6);
+    border-radius: 18px; padding: 26px 20px 24px;
+    box-shadow: var(--shadow-card);
   }
 
   /* ===== 表單欄位 ===== */
@@ -101,7 +121,7 @@
     outline: none; transition: border-color .15s, box-shadow .15s;
   }
   .input::placeholder { color: #b3b9b1; }
-  .input:focus { border-color: var(--mist); box-shadow: 0 0 0 3px rgba(107,143,122,.2); }
+  .input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,162,75,.22); }
   textarea.input { resize: vertical; min-height: 62px; line-height: 1.6; font-family: inherit; }
   .field label .opt { color: var(--muted); font-weight: 400; font-size: 12px; margin-left: 5px; }
 
@@ -132,18 +152,17 @@
 
   /* ===== 活動資訊 ===== */
   .event {
-    background: rgba(250,248,242,.96);
-    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(255,255,255,.5);
-    border-radius: 18px; padding: 20px 18px 6px; margin-bottom: 16px;
-    box-shadow: 0 14px 34px rgba(15,28,20,.28);
+    background: linear-gradient(180deg, #faf8f2 0%, #f4efe4 100%);
+    border: 1px solid rgba(255,255,255,.6);
+    border-radius: 18px; padding: 24px 20px 8px; margin-bottom: 16px;
+    box-shadow: var(--shadow-card);
   }
-  .event-lead { margin: 0 0 12px; font-size: 14px; line-height: 1.95; color: #3a463d; letter-spacing: .3px; }
+  .event-lead { margin: 0 0 14px; font-size: 14px; line-height: 2; color: #3a463d; letter-spacing: .4px; }
   .ev-block { border-top: 1px solid var(--border); }
   .ev-block > summary {
-    list-style: none; cursor: pointer; padding: 13px 2px;
-    font-size: 15px; font-weight: 700; color: var(--forest);
-    display: flex; align-items: center; gap: 9px;
+    list-style: none; cursor: pointer; padding: 14px 2px; min-height: 44px;
+    font-family: var(--serif); font-size: 16px; font-weight: 600; letter-spacing: 1.5px; color: var(--forest);
+    display: flex; align-items: center; gap: 10px;
   }
   .ev-block > summary::-webkit-details-marker { display: none; }
   .ev-block > summary::before { content: ""; width: 4px; height: 15px; border-radius: 2px; background: var(--gold); flex: 0 0 auto; }
@@ -154,8 +173,8 @@
   .ev-body b { color: var(--ink); }
   .ev-body ol { margin: 6px 0 0; padding-left: 20px; }
   .ev-body ol li { margin-bottom: 7px; }
-  .ev-body .prize { padding: 9px 11px; background: #f2f6f0; border-radius: 9px; margin-bottom: 8px; }
-  .ev-body .prize b { color: var(--forest); }
+  .ev-body .prize { padding: 11px 13px; background: #f1f5ef; border-radius: 10px; margin-bottom: 8px; border-left: 2px solid var(--hair); }
+  .ev-body .prize b { color: var(--forest); font-family: var(--serif); font-weight: 600; letter-spacing: .5px; font-size: 14px; }
 
   /* ===== 個資同意 ===== */
   .consent {
@@ -178,13 +197,15 @@
 
   /* ===== 送出按鈕 ===== */
   .submit {
-    width: 100%; margin-top: 4px; border: 0; cursor: pointer;
-    font-size: 17px; font-weight: 700; letter-spacing: 3px;
-    color: var(--cream); padding: 16px; border-radius: 12px;
-    background: linear-gradient(135deg, var(--forest) 0%, var(--forest2) 100%);
-    box-shadow: 0 10px 22px rgba(30,50,38,.28);
-    transition: transform .08s, opacity .15s;
+    width: 100%; margin-top: 6px; cursor: pointer;
+    border: 1px solid rgba(201,162,75,.42);
+    font-size: 16px; font-weight: 700; letter-spacing: 6px;
+    color: var(--cream); padding: 17px; border-radius: 12px;
+    background: linear-gradient(135deg, #345140 0%, #2a4335 100%);
+    box-shadow: 0 12px 26px rgba(20,40,28,.34);
+    transition: transform .1s, box-shadow .2s, opacity .15s;
   }
+  .submit:not(:disabled):hover { box-shadow: 0 15px 32px rgba(20,40,28,.44); }
   .submit:active { transform: translateY(1px); }
   .submit:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
   .submit .spin {
@@ -198,10 +219,13 @@
   .err { display: none; margin-top: 12px; text-align: center; color: var(--danger); font-size: 14px; font-weight: 600; }
 
   /* ===== 成功畫面（深底 → 淺色字） ===== */
-  .done { display: none; text-align: center; padding: 8px 6px 6px; }
+  .done { display: none; text-align: center; padding: 10px 6px 6px; }
   .done .check { color: var(--gold); }
-  .done .check svg { width: 58px; height: 58px; }
-  .done h2 { margin: 16px 0 8px; font-size: 22px; letter-spacing: 1px; color: var(--cream); text-shadow: 0 2px 10px rgba(0,0,0,.45); }
+  .done .check svg { width: 60px; height: 60px; }
+  .done .check svg circle { stroke-dasharray: 133; stroke-dashoffset: 133; animation: draw .6s cubic-bezier(.65,0,.35,1) forwards; }
+  .done .check svg path { stroke-dasharray: 32; stroke-dashoffset: 32; animation: draw .4s .5s cubic-bezier(.65,0,.35,1) forwards; }
+  @keyframes draw { to { stroke-dashoffset: 0; } }
+  .done h2 { margin: 18px 0 8px; font-family: var(--serif); font-size: 23px; font-weight: 600; letter-spacing: 3px; color: var(--cream); text-shadow: 0 2px 10px rgba(0,0,0,.45); }
   .done p  { margin: 0 auto; color: rgba(244,239,228,.85); font-size: 14.5px; max-width: 300px; line-height: 1.7; text-shadow: 0 1px 8px rgba(0,0,0,.4); }
   .line-btn {
     display: flex; align-items: center; justify-content: center; gap: 10px;
@@ -223,10 +247,17 @@
   .again-btn:active { background: rgba(255,255,255,.18); }
   .again-btn svg { width: 18px; height: 18px; }
 
-  /* ===== 頁尾 + Demo 後台入口 ===== */
+  /* ===== 頁尾 + 落款 + Demo 後台入口 ===== */
+  .seal {
+    width: 44px; height: 44px; margin: 0 auto 14px;
+    border: 1.5px solid var(--hair); border-radius: 9px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: var(--serif); font-size: 22px; color: var(--gold);
+    box-shadow: 0 2px 10px rgba(0,0,0,.22);
+  }
   .footer {
-    text-align:center; color: rgba(244,239,228,.72); font-size: 11px;
-    margin-top: auto; padding-top: 24px; line-height: 2; letter-spacing: 1px;
+    text-align:center; color: rgba(244,239,228,.7); font-size: 11px;
+    margin-top: auto; padding-top: 28px; line-height: 2; letter-spacing: 1.5px;
     text-shadow: 0 1px 6px rgba(0,0,0,.4);
   }
   .inbox-link { color: rgba(244,239,228,.82); text-decoration: underline; cursor: pointer; font-size: 12px; }
@@ -277,6 +308,29 @@
   .ic-row svg { width: 13px; height: 13px; color: var(--mist); flex: 0 0 auto; }
   .ic-row.time { font-size: 11.5px; color: var(--muted); }
   .empty { text-align: center; color: var(--muted); font-size: 14px; padding: 44px 10px; line-height: 1.9; }
+
+  /* ===== iPhone 安全區（瀏海／底部條）===== */
+  @supports (padding: max(0px)) {
+    .wrap {
+      padding-left: max(18px, env(safe-area-inset-left));
+      padding-right: max(18px, env(safe-area-inset-right));
+      padding-top: max(26px, env(safe-area-inset-top));
+      padding-bottom: max(40px, env(safe-area-inset-bottom));
+    }
+  }
+
+  /* ===== 進場動效（節制、由下淡入、staggered）===== */
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .banner, .hero, #eventInfo, #formCard { opacity: 0; animation: rise .55s cubic-bezier(.22,.61,.36,1) forwards; }
+  .hero { animation-delay: .08s; }
+  #eventInfo { animation-delay: .16s; }
+  #formCard { animation-delay: .24s; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .banner, .hero, #eventInfo, #formCard { opacity: 1; animation: none; }
+    .done .check svg circle, .done .check svg path { animation: none; stroke-dashoffset: 0; }
+    * { transition-duration: .01ms !important; }
+  }
 </style>
 </head>
 <body>
@@ -302,9 +356,9 @@
         <span class="brand-zh">鹿芝谷</span>
         <span class="brand-en">DEER VALLEY</span>
       </div>
-      <h1>蝴蝶拍攝比賽</h1>
-      <p class="lede" id="lede">拍下你眼中的蝴蝶，上傳作品參加比賽</p>
-      <div class="gold-rule"></div>
+      <div class="hero-rule"><span class="diamond"></span></div>
+      <h1 class="event-name">2026 紫斑蝶攝影競賽</h1>
+      <p class="lede" id="lede">拍下你眼中的紫色風景，上傳作品參加比賽</p>
     </header>
 
     <!-- 活動資訊 -->
@@ -420,7 +474,9 @@
       </button>
     </div>
 
-    <div class="footer">鹿芝谷 Deer Valley · 蝴蝶拍攝比賽<br>
+    <div class="footer">
+      <div class="seal">蝶</div>
+      鹿芝谷 Deer Valley · 蝶影<br>
       <span class="inbox-link" id="inboxLink">查看已收到的登記（Demo 後台）</span>
     </div>
 
