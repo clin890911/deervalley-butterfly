@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<title>鹿芝谷蝶類攝影競賽 蝶影 — 作品上傳</title>
+<style>
+  /* ===== 鹿芝谷「蝶影」· 明亮天空色調 · 手機優先 ===== */
+  :root {
+    --forest: #2f4a3c;
+    --forest2: #3c5c4a;
+    --mist: #6b8f7a;
+    --cream: #f4efe4;
+    --gold: #c9a24b;
+    --gold-dark: #a8843a;
+    --ink: #26302a;
+    --muted: #7d8a80;
+    --border: #e0e5dd;
+    --field: #ffffff;
+    --line: #06c755;
+    --line-dark: #05a648;
+    --danger: #c1483f;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC",
+                 "Noto Sans TC", "Microsoft JhengHei", sans-serif;
+    color: var(--ink);
+    min-height: 100vh;
+    -webkit-text-size-adjust: 100%;
+    background: linear-gradient(180deg, #dcebf5 0%, #e8f0ea 42%, #f4efe4 100%) fixed;
+  }
+  .wrap {
+    max-width: 480px; margin: 0 auto; padding: 18px 16px 40px;
+    min-height: 100vh; display: flex; flex-direction: column;
+  }
+
+  /* ===== 主視覺海報 ===== */
+  .poster {
+    border-radius: 16px; overflow: hidden; margin-bottom: 18px;
+    box-shadow: 0 14px 34px rgba(40,60,80,.22);
+  }
+  .poster img { width: 100%; display: block; }
+
+  /* ===== 表單前引言 ===== */
+  .intro { text-align: center; padding: 2px 6px 16px; }
+  .intro h1 { margin: 0 0 6px; font-size: 21px; letter-spacing: 2px; color: var(--forest); font-weight: 700; }
+  .intro .lede { margin: 0; font-size: 13.5px; color: var(--muted); letter-spacing: .5px; }
+
+  /* ===== 卡片 ===== */
+  .card {
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: 18px; padding: 22px 18px 24px;
+    box-shadow: 0 10px 30px rgba(40,60,50,.1);
+  }
+
+  /* ===== 表單欄位 ===== */
+  .field { margin-bottom: 17px; }
+  .field label:not(.photo-box) {
+    display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--ink);
+  }
+  .field label .req { color: var(--gold-dark); margin-left: 3px; }
+  .input {
+    width: 100%; font-size: 16px; color: var(--ink);
+    padding: 13px 14px; background: var(--field);
+    border: 1.5px solid var(--border); border-radius: 11px;
+    outline: none; transition: border-color .15s, box-shadow .15s;
+  }
+  .input::placeholder { color: #b3b9b1; }
+  .input:focus { border-color: var(--mist); box-shadow: 0 0 0 3px rgba(107,143,122,.2); }
+
+  /* ===== 照片上傳 ===== */
+  .photo-box {
+    display: flex; flex-direction: column; align-items: center;
+    border: 1.5px dashed var(--mist); border-radius: 13px; background: #f7faf6;
+    text-align: center; padding: 26px 14px; cursor: pointer; transition: background .15s;
+  }
+  .photo-box:active { background: #eef4ec; }
+  .pb-icon { color: var(--forest); }
+  .pb-icon svg { width: 34px; height: 34px; }
+  .pb-t1 { font-weight: 700; margin-top: 10px; font-size: 15px; color: var(--ink); }
+  .pb-t2 { color: var(--muted); font-size: 12.5px; margin-top: 3px; }
+  .photo-box input[type=file] { display: none; }
+  .preview { position: relative; border-radius: 13px; overflow: hidden; display: none; }
+  .preview img { width: 100%; display: block; max-height: 340px; object-fit: cover; }
+  .preview .change {
+    position: absolute; right: 10px; bottom: 10px;
+    background: rgba(20,32,25,.68); color: #fff; font-size: 13px;
+    padding: 8px 14px; border-radius: 999px; font-weight: 600;
+  }
+  .preview .meta {
+    position: absolute; left: 10px; top: 10px;
+    background: rgba(47,74,60,.92); color:#fff; font-size:12px;
+    padding: 5px 11px; border-radius: 999px; font-weight:600; letter-spacing: .3px;
+  }
+
+  /* ===== 個資同意 ===== */
+  .consent {
+    display: flex; gap: 10px; align-items: flex-start;
+    margin: 4px 0 8px; padding: 12px 13px; background: #f4f7f2;
+    border: 1px solid var(--border); border-radius: 11px;
+  }
+  .consent input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--forest); flex: 0 0 auto; }
+  .consent label { font-size: 12.5px; line-height: 1.6; color: #4a5650; }
+  details.terms { margin: 0 2px 16px; }
+  details.terms summary {
+    font-size: 12.5px; color: var(--mist); cursor: pointer; list-style: none;
+    text-decoration: underline; text-underline-offset: 2px;
+  }
+  details.terms summary::-webkit-details-marker { display: none; }
+  details.terms .terms-body {
+    font-size: 12px; color: #6a756d; line-height: 1.7; margin-top: 8px;
+    padding: 10px 12px; background: #f7faf6; border-radius: 10px;
+  }
+
+  /* ===== 送出按鈕 ===== */
+  .submit {
+    width: 100%; margin-top: 4px; border: 0; cursor: pointer;
+    font-size: 17px; font-weight: 700; letter-spacing: 3px;
+    color: var(--cream); padding: 16px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--forest) 0%, var(--forest2) 100%);
+    box-shadow: 0 10px 22px rgba(30,50,38,.28);
+    transition: transform .08s, opacity .15s;
+  }
+  .submit:active { transform: translateY(1px); }
+  .submit:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
+  .submit .spin {
+    display: inline-block; width: 16px; height: 16px; vertical-align: -2px;
+    margin-right: 8px; border: 2.5px solid rgba(244,239,228,.45);
+    border-top-color: var(--cream); border-radius: 50%; animation: spin .7s linear infinite;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+
+  .hint { text-align:center; color: var(--muted); font-size: 12px; margin-top: 14px; }
+  .err { display: none; margin-top: 12px; text-align: center; color: var(--danger); font-size: 14px; font-weight: 600; }
+
+  /* ===== 成功畫面（明亮底 → 深色字） ===== */
+  .done { display: none; text-align: center; padding: 10px 6px 6px; }
+  .done .check { color: var(--forest); }
+  .done .check svg { width: 58px; height: 58px; }
+  .done h2 { margin: 16px 0 8px; font-size: 22px; letter-spacing: 1px; color: var(--ink); }
+  .done p  { margin: 0 auto; color: var(--muted); font-size: 14.5px; max-width: 300px; line-height: 1.7; }
+  .line-btn {
+    display: flex; align-items: center; justify-content: center; gap: 10px;
+    width: 100%; margin-top: 24px; text-decoration: none;
+    background: var(--line); color: #fff; font-size: 18px; font-weight: 800;
+    padding: 16px; border-radius: 12px; letter-spacing: 1px;
+    box-shadow: 0 10px 22px rgba(6,199,85,.3);
+    transition: transform .08s, background .15s;
+  }
+  .line-btn:active { transform: translateY(1px); background: var(--line-dark); }
+  .line-btn svg { width: 24px; height: 24px; flex: 0 0 auto; }
+  .line-sub { margin-top: 13px; color: var(--muted); font-size: 12.5px; line-height: 1.6; }
+  .again-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    width: 100%; margin-top: 16px; border: 1.5px solid var(--border);
+    background: #fff; color: var(--forest); font-size: 15px; font-weight: 700;
+    padding: 13px; border-radius: 12px; cursor: pointer;
+  }
+  .again-btn:active { background: #f2f6f0; }
+  .again-btn svg { width: 18px; height: 18px; }
+
+  /* ===== 頁尾 + Demo 後台入口 ===== */
+  .footer {
+    text-align:center; color: var(--muted); font-size: 11px;
+    margin-top: auto; padding-top: 24px; line-height: 2; letter-spacing: 1px;
+  }
+  .inbox-link { color: var(--mist); text-decoration: underline; cursor: pointer; font-size: 12px; }
+
+  /* ===== Demo 後台 overlay ===== */
+  .overlay {
+    display: none; position: fixed; inset: 0; z-index: 50;
+    background: rgba(18,28,22,.5); backdrop-filter: blur(2px);
+    align-items: flex-end; justify-content: center;
+  }
+  .overlay.open { display: flex; }
+  .sheet {
+    width: 100%; max-width: 480px; background: #fff;
+    border-radius: 18px 18px 0 0; max-height: 86vh; display: flex; flex-direction: column;
+    box-shadow: 0 -10px 40px rgba(0,0,0,.3);
+  }
+  .sheet-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 18px 12px; border-bottom: 1px solid var(--border);
+  }
+  .sheet-title { font-size: 16px; font-weight: 800; color: var(--ink); }
+  .sheet-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+  .close-x {
+    border: 0; background: #eef2eb; color: var(--ink);
+    width: 34px; height: 34px; border-radius: 50%; cursor: pointer; flex: 0 0 auto;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .close-x svg { width: 16px; height: 16px; }
+  .sheet-tools {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 12px 16px; font-size: 13px; color: var(--muted);
+  }
+  .tool-btn {
+    display: inline-flex; align-items: center; gap: 5px;
+    border: 1px solid var(--border); background:#fff; color: var(--ink);
+    font-size: 12.5px; padding: 8px 11px; border-radius: 10px; cursor: pointer; margin-left: 8px;
+  }
+  .tool-btn svg { width: 14px; height: 14px; }
+  .tool-btn.danger { color: var(--danger); border-color: #e6c3bf; }
+  .inbox-list { overflow-y: auto; padding: 8px 14px 24px; }
+  .inbox-card {
+    display: flex; gap: 12px; align-items: center; padding: 10px;
+    border: 1px solid var(--border); border-radius: 13px; margin-bottom: 10px; background: #fbfcfa;
+  }
+  .inbox-card img { width: 62px; height: 62px; object-fit: cover; border-radius: 9px; flex: 0 0 auto; background:#eee; }
+  .ic-name { font-weight: 700; font-size: 15px; color: var(--ink); }
+  .ic-row { display: flex; align-items: center; gap: 5px; font-size: 13px; color: #5c665e; margin-top: 3px; }
+  .ic-row svg { width: 13px; height: 13px; color: var(--mist); flex: 0 0 auto; }
+  .ic-row.time { font-size: 11.5px; color: var(--muted); }
+  .empty { text-align: center; color: var(--muted); font-size: 14px; padding: 44px 10px; line-height: 1.9; }
+</style>
+</head>
+<body>
+  <!-- ================================================================== -->
+  <!--  ★★★  設定區：正式上線時填這兩行  ★★★                          -->
+  <!-- ================================================================== -->
+  <script>
+    // 1) 部署 Apps Script 後的「網頁應用程式」網址（見 SETUP.md）
+    const GOOGLE_SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
+
+    // 2) LINE 官方帳號加好友連結
+    const LINE_URL = "https://lin.ee/PFuEO5j";
+  </script>
+  <!-- ================================================================== -->
+
+  <div class="wrap">
+    <!-- 主視覺海報 -->
+    <div class="poster">
+      <img src="assets/hero.jpg" alt="鹿芝谷蝶類攝影競賽 蝶影 2026/07/06–2026/08/31" />
+    </div>
+
+    <div class="intro" id="intro">
+      <h1>上傳你的參賽作品</h1>
+      <p class="lede">填寫姓名、電話並上傳照片，即可參加</p>
+    </div>
+
+    <!-- 表單 -->
+    <div class="card" id="formCard">
+      <div class="field">
+        <label for="name">姓名<span class="req">*</span></label>
+        <input class="input" id="name" type="text" placeholder="請輸入姓名" autocomplete="name" />
+      </div>
+
+      <div class="field">
+        <label for="phone">電話<span class="req">*</span></label>
+        <input class="input" id="phone" type="tel" inputmode="numeric" placeholder="09xx-xxx-xxx" autocomplete="tel" />
+      </div>
+
+      <div class="field">
+        <label>拍攝照片<span class="req">*</span></label>
+        <label class="photo-box" id="photoBox" for="photo">
+          <span class="pb-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A1.5 1.5 0 0 1 4.5 7h2l1.1-1.7A1 1 0 0 1 8.4 4.8h7.2a1 1 0 0 1 .8.5L17.5 7h2A1.5 1.5 0 0 1 21 8.5v9A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.3"/></svg>
+          </span>
+          <span class="pb-t1">點這裡上傳照片</span>
+          <span class="pb-t2">選擇相簿照片，或直接拍一張</span>
+          <input id="photo" type="file" accept="image/*" />
+        </label>
+        <div class="preview" id="preview">
+          <div class="meta" id="previewMeta"></div>
+          <img id="previewImg" alt="預覽" />
+          <div class="change">更換照片</div>
+        </div>
+      </div>
+
+      <div class="consent">
+        <input type="checkbox" id="consent" />
+        <label for="consent">我同意主辦單位（鹿芝谷）為活動聯繫與得獎通知之目的，蒐集及使用我的姓名與電話。</label>
+      </div>
+      <details class="terms">
+        <summary>活動辦法與個人資料告知</summary>
+        <div class="terms-body">
+          （此處放正式活動辦法與個資告知條文，例如：蒐集目的、保存期限、參賽者權利、聯絡方式等。待主辦單位提供後填入。）
+        </div>
+      </details>
+
+      <button class="submit" id="submitBtn" disabled>送出參賽作品</button>
+      <div class="err" id="err">送出失敗，請確認網路後再試一次</div>
+      <div class="hint">送出即代表你已閱讀並同意上述活動辦法</div>
+    </div>
+
+    <!-- 成功畫面 -->
+    <div class="done" id="doneCard">
+      <div class="check">
+        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="21"/><path d="M15 24.5l6 6 12-13"/></svg>
+      </div>
+      <h2>登記完成，感謝參加</h2>
+      <p>你的參賽作品已經收到，祝你在鹿芝谷拍出最美的蝴蝶。</p>
+      <a class="line-btn" id="lineBtn" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+          <path d="M12 2C6.48 2 2 5.64 2 10.12c0 4.01 3.55 7.37 8.35 8.01.33.07.77.22.88.5.1.26.06.66.03.92l-.14.86c-.04.26-.2 1.02.9.56 1.1-.46 5.93-3.49 8.09-5.98C21.5 13.4 22 11.83 22 10.12 22 5.64 17.52 2 12 2ZM8.2 12.66H6.61c-.23 0-.42-.19-.42-.42V8.94c0-.23.19-.42.42-.42.24 0 .43.19.43.42v2.88H8.2c.24 0 .43.19.43.42 0 .23-.19.42-.43.42Zm1.67-.42c0 .23-.19.42-.43.42-.23 0-.42-.19-.42-.42V8.94c0-.23.19-.42.42-.42.24 0 .43.19.43.42v3.3Zm3.86 0c0 .18-.12.34-.29.4-.05.02-.09.02-.14.02-.14 0-.26-.06-.34-.17l-1.36-1.85v1.6c0 .23-.19.42-.43.42-.23 0-.42-.19-.42-.42V8.94c0-.18.12-.34.29-.4.04-.01.09-.02.13-.02.13 0 .26.07.34.17l1.37 1.85V8.94c0-.23.19-.42.42-.42.24 0 .43.19.43.42v3.3Zm2.99-2.07c.24 0 .43.19.43.42 0 .24-.19.43-.43.43h-1.16v.74h1.16c.24 0 .43.19.43.42 0 .24-.19.43-.43.43h-1.58c-.23 0-.42-.19-.42-.43V8.94c0-.23.19-.42.42-.42h1.58c.24 0 .43.19.43.42 0 .24-.19.43-.43.43h-1.16v.73h1.16Z"/>
+        </svg>
+        加入 LINE 好友
+      </a>
+      <div class="line-sub">想收到得獎通知，可以順手加入官方 LINE（選填，不加也已完成登記）</div>
+      <button class="again-btn" id="againBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+        再登記一位
+      </button>
+    </div>
+
+    <div class="footer">鹿芝谷 Deer Valley · 蝶類攝影競賽「蝶影」<br>
+      <span class="inbox-link" id="inboxLink">查看已收到的登記（Demo 後台）</span>
+    </div>
+
+    <!-- Demo 後台：本機暫存，方便完整測試「客人上傳→我收到」 -->
+    <div class="overlay" id="inboxOverlay">
+      <div class="sheet">
+        <div class="sheet-head">
+          <div>
+            <div class="sheet-title">Demo 後台 · 已收到的登記</div>
+            <div class="sheet-sub">本機暫存（正式版請看 Google 試算表）</div>
+          </div>
+          <button class="close-x" id="closeInbox" aria-label="關閉">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <div class="sheet-tools">
+          <span id="inboxCount">共 0 筆</span>
+          <div>
+            <button class="tool-btn" id="exportCsv">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v10m0 0 3.5-3.5M12 13.5 8.5 10M4.5 16.5v2A1.5 1.5 0 0 0 6 20h12a1.5 1.5 0 0 0 1.5-1.5v-2"/></svg>
+              匯出 CSV
+            </button>
+            <button class="tool-btn danger" id="clearInbox">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M9 6.5V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1.5M6.5 6.5l.8 12a1.5 1.5 0 0 0 1.5 1.4h6.4a1.5 1.5 0 0 0 1.5-1.4l.8-12"/></svg>
+              全部清空
+            </button>
+          </div>
+        </div>
+        <div class="inbox-list" id="inboxList"></div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  const nameEl = $("name"), phoneEl = $("phone"), photoEl = $("photo"), consentEl = $("consent");
+  const submitBtn = $("submitBtn"), errEl = $("err");
+  const photoBox = $("photoBox"), preview = $("preview");
+  const previewImg = $("previewImg"), previewMeta = $("previewMeta");
+  const BACKEND_READY = GOOGLE_SCRIPT_URL && !GOOGLE_SCRIPT_URL.startsWith("PASTE_");
+
+  let compressedDataUrl = null;
+
+  // ===== 表單有效性 =====
+  function phoneValid(v) { return (v || "").replace(/\D/g, "").length >= 8; }
+  function refresh() {
+    const ok = nameEl.value.trim() && phoneValid(phoneEl.value) && compressedDataUrl && consentEl.checked;
+    submitBtn.disabled = !ok;
+  }
+  nameEl.addEventListener("input", refresh);
+  phoneEl.addEventListener("input", refresh);
+  consentEl.addEventListener("change", refresh);
+
+  // ===== 照片：選檔 → 校正方向 → 壓縮 → 預覽 =====
+  photoEl.addEventListener("change", async (e) => {
+    const file = e.target.files && e.target.files[0];
+    if (file) await processPhoto(file);
+  });
+
+  async function processPhoto(file) {
+    const MAX = 1600;
+    // 優先用 createImageBitmap 並套用 EXIF 方向（避免 iPhone 直拍照片變橫躺）
+    let bitmap = null;
+    try { bitmap = await createImageBitmap(file, { imageOrientation: "from-image" }); } catch (_) {}
+    if (bitmap) {
+      let w = bitmap.width, h = bitmap.height;
+      if (w > MAX || h > MAX) { if (w >= h) { h = Math.round(h*MAX/w); w = MAX; } else { w = Math.round(w*MAX/h); h = MAX; } }
+      const c = document.createElement("canvas"); c.width = w; c.height = h;
+      c.getContext("2d").drawImage(bitmap, 0, 0, w, h);
+      if (bitmap.close) bitmap.close();
+      finishPhoto(c.toDataURL("image/jpeg", 0.85));
+      return;
+    }
+    // 後備：FileReader + Image（等 onload 完成才 resolve）
+    const dataUrl = await new Promise(res => { const r = new FileReader(); r.onload = ev => res(ev.target.result); r.readAsDataURL(file); });
+    await new Promise((resolve) => {
+      const img = new Image();
+      img.onload = () => {
+        let w = img.width, h = img.height;
+        if (w > MAX || h > MAX) { if (w >= h) { h = Math.round(h*MAX/w); w = MAX; } else { w = Math.round(w*MAX/h); h = MAX; } }
+        const c = document.createElement("canvas"); c.width = w; c.height = h;
+        c.getContext("2d").drawImage(img, 0, 0, w, h);
+        finishPhoto(c.toDataURL("image/jpeg", 0.85));
+        resolve();
+      };
+      img.onerror = () => { finishPhoto(dataUrl); resolve(); };
+      img.src = dataUrl;
+    });
+  }
+
+  function finishPhoto(dataUrl) {
+    compressedDataUrl = dataUrl;
+    previewImg.src = dataUrl;
+    const kb = Math.round((dataUrl.length * 3 / 4) / 1024);
+    previewMeta.textContent = "已就緒 · 約 " + kb + " KB";
+    photoBox.style.display = "none";
+    preview.style.display = "block";
+    refresh();
+  }
+
+  preview.addEventListener("click", () => photoEl.click());
+
+  // ===== 送出 =====
+  submitBtn.addEventListener("click", async () => {
+    if (submitBtn.disabled) return;
+    errEl.style.display = "none";
+    setLoading(true);
+
+    const payload = { name: nameEl.value.trim(), phone: phoneEl.value.trim(), photo: compressedDataUrl, ua: navigator.userAgent };
+
+    if (!BACKEND_READY) {  // demo 模式：模擬成功，方便完整測試流程
+      setTimeout(() => { saveSubmission(payload); showDone(); }, 900);
+      return;
+    }
+
+    try {
+      const res = await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "text/plain;charset=utf-8" },
+        body: JSON.stringify(payload),
+      });
+      const data = await res.json().catch(() => ({ ok: res.ok }));
+      if (data && data.ok) { saveSubmission(payload); showDone(); }
+      else { throw new Error("server"); }
+    } catch (err) {
+      setLoading(false);
+      errEl.style.display = "block";
+    }
+  });
+
+  function setLoading(on) {
+    submitBtn.disabled = on;
+    submitBtn.innerHTML = on ? '<span class="spin"></span>上傳中…' : "送出參賽作品";
+    if (!on) refresh();
+  }
+
+  function showDone() {
+    const lineBtn = $("lineBtn");
+    const lineReady = LINE_URL && !LINE_URL.startsWith("PASTE_");
+    lineBtn.href = lineReady ? LINE_URL : "#";
+    lineBtn.onclick = lineReady ? null : (e) => {
+      e.preventDefault();
+      alert("（Demo）此處將連到你的 LINE 官方帳號加好友頁。\n請在 index.html 最上方填入 LINE_URL。");
+    };
+    $("formCard").style.display = "none";
+    $("intro").style.display = "none";
+    $("doneCard").style.display = "block";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // ===== 再登記一位：重設表單 =====
+  function resetForm() {
+    nameEl.value = ""; phoneEl.value = ""; photoEl.value = "";
+    consentEl.checked = false; compressedDataUrl = null;
+    preview.style.display = "none"; photoBox.style.display = "flex";
+    errEl.style.display = "none";
+    $("doneCard").style.display = "none";
+    $("intro").style.display = "block";
+    $("formCard").style.display = "block";
+    refresh();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  // ===== Demo 後台：本機暫存的登記清單 =====
+  const STORE_KEY = "butterfly_submissions";
+  function loadStore() { try { return JSON.parse(localStorage.getItem(STORE_KEY) || "[]"); } catch (e) { return []; } }
+  function saveStore(arr) { try { localStorage.setItem(STORE_KEY, JSON.stringify(arr)); return true; } catch (e) { return false; } }
+  function saveSubmission(p) {
+    const arr = loadStore();
+    arr.unshift({ name: p.name, phone: p.phone, photo: p.photo, time: new Date().toISOString() });
+    let ok = saveStore(arr);
+    while (!ok && arr.length > 1) { arr.pop(); ok = saveStore(arr); }
+  }
+  function escapeHtml(s) { return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c])); }
+  function fmtTime(iso) { const d = new Date(iso), z = n => String(n).padStart(2, "0"); return `${d.getFullYear()}/${z(d.getMonth()+1)}/${z(d.getDate())} ${z(d.getHours())}:${z(d.getMinutes())}`; }
+  const svgPhone = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M6.6 3.5 8.4 3.6a1 1 0 0 1 .9.7l.8 2.6a1 1 0 0 1-.3 1L8.2 9.2a12 12 0 0 0 5.4 5.4l1.3-1.6a1 1 0 0 1 1-.3l2.6.8a1 1 0 0 1 .7.9l.1 1.8a1.2 1.2 0 0 1-1.3 1.3A15.5 15.5 0 0 1 5.3 4.8 1.2 1.2 0 0 1 6.6 3.5z"/></svg>';
+  const svgClock = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 1.8"/></svg>';
+  function renderInbox() {
+    const arr = loadStore();
+    $("inboxCount").textContent = `共 ${arr.length} 筆`;
+    const list = $("inboxList");
+    if (!arr.length) { list.innerHTML = '<div class="empty">目前還沒有登記資料<br>先在上面填一筆送出試試</div>'; return; }
+    list.innerHTML = arr.map(s => `
+      <div class="inbox-card">
+        <img src="${s.photo}" alt="">
+        <div class="ic-body">
+          <div class="ic-name">${escapeHtml(s.name)}</div>
+          <div class="ic-row">${svgPhone}${escapeHtml(s.phone)}</div>
+          <div class="ic-row time">${svgClock}${fmtTime(s.time)}</div>
+        </div>
+      </div>`).join("");
+  }
+  function openInbox()  { renderInbox(); $("inboxOverlay").classList.add("open"); }
+  function closeInbox() { $("inboxOverlay").classList.remove("open"); }
+  function clearInbox() {
+    if (!confirm("確定要清空所有登記資料嗎？（僅清除本機 Demo 暫存）")) return;
+    localStorage.removeItem(STORE_KEY); renderInbox();
+  }
+  function exportCsv() {
+    const arr = loadStore();
+    if (!arr.length) { alert("目前沒有資料可匯出"); return; }
+    const rows = [["時間","姓名","電話"]].concat(arr.map(s => [fmtTime(s.time), s.name, s.phone]));
+    const csv = "﻿" + rows.map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(",")).join("\n");
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
+    a.download = "蝴蝶比賽登記.csv"; a.click(); URL.revokeObjectURL(a.href);
+  }
+
+  // ===== 事件綁定 =====
+  $("againBtn").addEventListener("click", resetForm);
+  $("inboxLink").addEventListener("click", openInbox);
+  $("closeInbox").addEventListener("click", closeInbox);
+  $("clearInbox").addEventListener("click", clearInbox);
+  $("exportCsv").addEventListener("click", exportCsv);
+  $("inboxOverlay").addEventListener("click", (e) => { if (e.target.id === "inboxOverlay") closeInbox(); });
+
+  // 正式上線（已接後端）時，隱藏 Demo 後台入口
+  if (BACKEND_READY) $("inboxLink").style.display = "none";
+</script>
+</body>
+</html>
