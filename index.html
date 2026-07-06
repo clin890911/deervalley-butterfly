@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-<title>鹿芝谷蝶類攝影競賽 蝶影 — 作品上傳</title>
+<title>鹿芝谷蝴蝶拍攝比賽 — 作品上傳</title>
 <style>
-  /* ===== 鹿芝谷「蝶影」· 明亮天空色調 · 手機優先 ===== */
+  /* ===== 鹿芝谷 · 低調高級 · 手機優先 ===== */
   :root {
     --forest: #2f4a3c;
     --forest2: #3c5c4a;
@@ -15,7 +15,7 @@
     --gold-dark: #a8843a;
     --ink: #26302a;
     --muted: #7d8a80;
-    --border: #e0e5dd;
+    --border: #dfe4dc;
     --field: #ffffff;
     --line: #06c755;
     --line-dark: #05a648;
@@ -29,31 +29,52 @@
     color: var(--ink);
     min-height: 100vh;
     -webkit-text-size-adjust: 100%;
-    background: linear-gradient(180deg, #dcebf5 0%, #e8f0ea 42%, #f4efe4 100%) fixed;
   }
+
+  /* 固定深綠背景（無照片，純漸層＋頂部微光） */
+  .bg {
+    position: fixed; inset: 0; z-index: -1;
+    background:
+      radial-gradient(120% 78% at 50% -12%, #3c5c48 0%, transparent 58%),
+      linear-gradient(165deg, #2f4a3c 0%, #21322870 40%, #1c2a22 100%),
+      #223328;
+  }
+
   .wrap {
-    max-width: 480px; margin: 0 auto; padding: 18px 16px 40px;
+    max-width: 480px; margin: 0 auto; padding: 26px 18px 40px;
     min-height: 100vh; display: flex; flex-direction: column;
   }
 
-  /* ===== 主視覺海報 ===== */
-  .poster {
-    border-radius: 16px; overflow: hidden; margin-bottom: 18px;
-    box-shadow: 0 14px 34px rgba(40,60,80,.22);
+  /* ===== 頁首 ===== */
+  .hero { text-align: center; padding: 8px 6px 20px; color: var(--cream); }
+  .brand {
+    font-size: 15px; font-weight: 700; letter-spacing: 3px; color: var(--cream);
+    text-shadow: 0 1px 6px rgba(0,0,0,.35);
   }
-  .poster img { width: 100%; display: block; }
-
-  /* ===== 表單前引言 ===== */
-  .intro { text-align: center; padding: 2px 6px 16px; }
-  .intro h1 { margin: 0 0 6px; font-size: 21px; letter-spacing: 2px; color: var(--forest); font-weight: 700; }
-  .intro .lede { margin: 0; font-size: 13.5px; color: var(--muted); letter-spacing: .5px; }
+  .brand span {
+    display: block; font-size: 9.5px; letter-spacing: 4px; font-weight: 500;
+    color: var(--gold); margin-top: 3px;
+  }
+  .hero h1 {
+    margin: 16px 0 8px; font-size: 26px; letter-spacing: 3px; font-weight: 700;
+    color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,.45);
+  }
+  .hero .lede {
+    margin: 0; font-size: 14px; color: rgba(244,239,228,.9); letter-spacing: .5px;
+    text-shadow: 0 1px 8px rgba(0,0,0,.4);
+  }
+  .gold-rule {
+    width: 46px; height: 2px; margin: 14px auto 0;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
 
   /* ===== 卡片 ===== */
   .card {
-    background: #ffffff;
-    border: 1px solid var(--border);
-    border-radius: 18px; padding: 22px 18px 24px;
-    box-shadow: 0 10px 30px rgba(40,60,50,.1);
+    background: rgba(250,248,242,.96);
+    backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.5);
+    border-radius: 18px; padding: 24px 18px 24px;
+    box-shadow: 0 18px 44px rgba(15,28,20,.34);
   }
 
   /* ===== 表單欄位 ===== */
@@ -136,12 +157,12 @@
   .hint { text-align:center; color: var(--muted); font-size: 12px; margin-top: 14px; }
   .err { display: none; margin-top: 12px; text-align: center; color: var(--danger); font-size: 14px; font-weight: 600; }
 
-  /* ===== 成功畫面（明亮底 → 深色字） ===== */
-  .done { display: none; text-align: center; padding: 10px 6px 6px; }
-  .done .check { color: var(--forest); }
+  /* ===== 成功畫面（深底 → 淺色字） ===== */
+  .done { display: none; text-align: center; padding: 8px 6px 6px; }
+  .done .check { color: var(--gold); }
   .done .check svg { width: 58px; height: 58px; }
-  .done h2 { margin: 16px 0 8px; font-size: 22px; letter-spacing: 1px; color: var(--ink); }
-  .done p  { margin: 0 auto; color: var(--muted); font-size: 14.5px; max-width: 300px; line-height: 1.7; }
+  .done h2 { margin: 16px 0 8px; font-size: 22px; letter-spacing: 1px; color: var(--cream); text-shadow: 0 2px 10px rgba(0,0,0,.45); }
+  .done p  { margin: 0 auto; color: rgba(244,239,228,.85); font-size: 14.5px; max-width: 300px; line-height: 1.7; text-shadow: 0 1px 8px rgba(0,0,0,.4); }
   .line-btn {
     display: flex; align-items: center; justify-content: center; gap: 10px;
     width: 100%; margin-top: 24px; text-decoration: none;
@@ -152,22 +173,23 @@
   }
   .line-btn:active { transform: translateY(1px); background: var(--line-dark); }
   .line-btn svg { width: 24px; height: 24px; flex: 0 0 auto; }
-  .line-sub { margin-top: 13px; color: var(--muted); font-size: 12.5px; line-height: 1.6; }
+  .line-sub { margin-top: 13px; color: rgba(244,239,228,.72); font-size: 12.5px; line-height: 1.6; text-shadow: 0 1px 6px rgba(0,0,0,.4); }
   .again-btn {
     display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-    width: 100%; margin-top: 16px; border: 1.5px solid var(--border);
-    background: #fff; color: var(--forest); font-size: 15px; font-weight: 700;
+    width: 100%; margin-top: 16px; border: 1.5px solid rgba(244,239,228,.4);
+    background: rgba(255,255,255,.1); color: var(--cream); font-size: 15px; font-weight: 700;
     padding: 13px; border-radius: 12px; cursor: pointer;
   }
-  .again-btn:active { background: #f2f6f0; }
+  .again-btn:active { background: rgba(255,255,255,.18); }
   .again-btn svg { width: 18px; height: 18px; }
 
   /* ===== 頁尾 + Demo 後台入口 ===== */
   .footer {
-    text-align:center; color: var(--muted); font-size: 11px;
+    text-align:center; color: rgba(244,239,228,.72); font-size: 11px;
     margin-top: auto; padding-top: 24px; line-height: 2; letter-spacing: 1px;
+    text-shadow: 0 1px 6px rgba(0,0,0,.4);
   }
-  .inbox-link { color: var(--mist); text-decoration: underline; cursor: pointer; font-size: 12px; }
+  .inbox-link { color: rgba(244,239,228,.82); text-decoration: underline; cursor: pointer; font-size: 12px; }
 
   /* ===== Demo 後台 overlay ===== */
   .overlay {
@@ -218,6 +240,8 @@
 </style>
 </head>
 <body>
+  <div class="bg"></div>
+
   <!-- ================================================================== -->
   <!--  ★★★  設定區：正式上線時填這兩行  ★★★                          -->
   <!-- ================================================================== -->
@@ -226,20 +250,17 @@
     const GOOGLE_SCRIPT_URL = "PASTE_YOUR_APPS_SCRIPT_URL_HERE";
 
     // 2) LINE 官方帳號加好友連結
-    const LINE_URL = "https://lin.ee/PFuEO5j";
+    const LINE_URL = "https://lin.ee/VMKWuFH";
   </script>
   <!-- ================================================================== -->
 
   <div class="wrap">
-    <!-- 主視覺海報 -->
-    <div class="poster">
-      <img src="assets/hero.jpg" alt="鹿芝谷蝶類攝影競賽 蝶影 2026/07/06–2026/08/31" />
-    </div>
-
-    <div class="intro" id="intro">
-      <h1>上傳你的參賽作品</h1>
-      <p class="lede">填寫姓名、電話並上傳照片，即可參加</p>
-    </div>
+    <header class="hero">
+      <div class="brand">鹿芝谷<span>DEER VALLEY</span></div>
+      <h1>蝴蝶拍攝比賽</h1>
+      <p class="lede" id="lede">拍下你眼中的蝴蝶，上傳作品參加比賽</p>
+      <div class="gold-rule"></div>
+    </header>
 
     <!-- 表單 -->
     <div class="card" id="formCard">
@@ -306,7 +327,7 @@
       </button>
     </div>
 
-    <div class="footer">鹿芝谷 Deer Valley · 蝶類攝影競賽「蝶影」<br>
+    <div class="footer">鹿芝谷 Deer Valley · 蝴蝶拍攝比賽<br>
       <span class="inbox-link" id="inboxLink">查看已收到的登記（Demo 後台）</span>
     </div>
 
@@ -452,7 +473,7 @@
       alert("（Demo）此處將連到你的 LINE 官方帳號加好友頁。\n請在 index.html 最上方填入 LINE_URL。");
     };
     $("formCard").style.display = "none";
-    $("intro").style.display = "none";
+    $("lede").style.display = "none";
     $("doneCard").style.display = "block";
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
@@ -464,7 +485,7 @@
     preview.style.display = "none"; photoBox.style.display = "flex";
     errEl.style.display = "none";
     $("doneCard").style.display = "none";
-    $("intro").style.display = "block";
+    $("lede").style.display = "";
     $("formCard").style.display = "block";
     refresh();
     window.scrollTo({ top: 0, behavior: "smooth" });
