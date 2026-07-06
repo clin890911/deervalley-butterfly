@@ -5,418 +5,320 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
 <title>蝶影 · 2026 紫斑蝶攝影競賽 — 鹿芝谷</title>
 <meta name="description" content="鹿芝谷 2026 紫斑蝶攝影競賽「蝶影」。拍下你眼中的紫色風景，上傳作品參加比賽。" />
-<link rel="icon" type="image/png" href="assets/favicon.png" />
-<!-- 分享預覽（LINE／FB／社群） -->
 <meta property="og:type" content="website" />
 <meta property="og:title" content="蝶影 · 2026 紫斑蝶攝影競賽 — 鹿芝谷" />
 <meta property="og:description" content="拍下你眼中的紫色風景，上傳作品參加比賽。" />
 <meta property="og:image" content="https://clin890911.github.io/deervalley-butterfly/assets/og.jpg" />
 <meta property="og:url" content="https://clin890911.github.io/deervalley-butterfly/" />
 <meta name="twitter:card" content="summary_large_image" />
-<!-- 思源宋體（僅標題固定字，子集化，載入極小） -->
+<link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&display=swap&text=鹿芝谷紫斑蝶攝影競賽活動資訊獎項得公布與注意事登記完成感謝參加飛舞之眼金自然美社群人氣蝶影，DEERVALLEY2026" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet" />
 <style>
-  /* ===== 鹿芝谷 · 低調高級 · 手機優先 ===== */
+  /* ===== 蝶影 · 雜誌感（bold editorial） ===== */
   :root {
+    --ink: #17221c;
+    --paper: #f1ebdd;
+    --paper2: #e8e0cd;
     --forest: #2f4a3c;
-    --forest2: #3c5c4a;
+    --forest-deep: #1b2a22;
     --mist: #6b8f7a;
     --cream: #f4efe4;
-    --gold: #c9a24b;
-    --gold-dark: #a8843a;
-    --ink: #26302a;
-    --muted: #7d8a80;
-    --border: #dfe4dc;
-    --field: #ffffff;
-    --line: #06c755;
-    --line-dark: #05a648;
-    --danger: #c1483f;
-    --serif: "Noto Serif TC", "Songti TC", "Noto Serif CJK TC", serif;
-    --shadow-card: 0 20px 48px rgba(15,28,20,.30);
-    --hair: rgba(201,162,75,.55); /* 金色細線 */
+    --gold: #a97f2b;      /* 深金：印在米色上 */
+    --gold-br: #c9a24b;   /* 亮金：印在深綠上 */
+    --muted: #7a7466;
+    --danger: #b4402f;
+    --line: #06c755; --line-dark: #05a648;
+    --serif: "Noto Serif TC", "Songti TC", serif;
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang TC",
-                 "Noto Sans TC", "Microsoft JhengHei", sans-serif;
-    color: var(--ink);
-    min-height: 100vh;
-    -webkit-text-size-adjust: 100%;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+    color: var(--ink); background: var(--paper); -webkit-text-size-adjust: 100%;
+  }
+  .mag { max-width: 500px; margin: 0 auto; background: var(--paper); overflow: hidden; }
+
+  .demo-tag {
+    position: fixed; top: 10px; right: 10px; z-index: 60;
+    background: rgba(23,34,28,.86); color: var(--gold-br);
+    font-size: 10px; letter-spacing: 2px; font-weight: 700;
+    padding: 6px 11px; border-radius: 999px; border: 1px solid rgba(201,162,75,.4);
   }
 
-  /* 固定深綠背景（無照片，純漸層＋頂部微光） */
-  .bg {
-    position: fixed; inset: 0; z-index: -1;
-    background:
-      radial-gradient(120% 78% at 50% -12%, #3c5c48 0%, transparent 58%),
-      linear-gradient(165deg, #2f4a3c 0%, #21322870 40%, #1c2a22 100%),
-      #223328;
+  /* ===== 封面 ===== */
+  .cover { position: relative; width: 100%; height: 76vh; min-height: 460px; overflow: hidden; background: var(--forest-deep); }
+  .cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .cover-scrim {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(20,30,24,.55) 0%, transparent 26%, transparent 62%, rgba(18,26,22,.85) 100%);
   }
-
-  .wrap {
-    max-width: 480px; margin: 0 auto; padding: 26px 18px 40px;
-    min-height: 100vh; display: flex; flex-direction: column;
+  .cover-top {
+    position: absolute; top: 0; left: 0; right: 0; padding: 20px 22px;
+    display: flex; align-items: center; gap: 10px;
+    color: rgba(244,239,228,.92); font-size: 11px; letter-spacing: 3px; font-weight: 700;
   }
-
-  /* ===== 主視覺 banner ===== */
-  .banner {
-    width: 100%; display: block; border-radius: 16px; margin-bottom: 20px;
-    box-shadow: 0 14px 34px rgba(0,0,0,.3);
+  .cover-top .rule { flex: 1; height: 1px; background: rgba(244,239,228,.4); }
+  .cover-foot {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 0 22px 22px;
+    display: flex; justify-content: space-between; align-items: flex-end;
+    color: var(--cream);
   }
+  .cover-foot .vol { font-family: var(--serif); font-size: 13px; letter-spacing: 3px; font-weight: 600; }
+  .cover-foot .date { font-size: 12px; letter-spacing: 3px; font-weight: 700; color: var(--gold-br); }
+  .scrollcue { position: absolute; left: 50%; bottom: 74px; transform: translateX(-50%); width: 1px; height: 34px; background: linear-gradient(var(--gold-br), transparent); opacity: .8; }
 
   /* ===== 刊頭 masthead ===== */
-  .hero { text-align: center; padding: 4px 6px 22px; color: var(--cream); }
-  .brand { line-height: 1; }
-  .brand-zh {
-    display: block; font-family: var(--serif);
-    font-size: 30px; font-weight: 600; letter-spacing: 14px;
-    color: var(--cream); text-shadow: 0 2px 14px rgba(0,0,0,.42);
-    padding-left: 14px; /* 補償 letter-spacing 右偏，視覺置中 */
+  .mast { padding: 40px 26px 30px; border-bottom: 1px solid rgba(23,34,28,.12); }
+  .kicker { font-size: 11px; letter-spacing: 5px; font-weight: 700; color: var(--gold); text-transform: uppercase; }
+  .mast-title {
+    margin: 16px 0 0; font-family: var(--serif); font-weight: 900;
+    font-size: 58px; line-height: .98; letter-spacing: 2px; color: var(--ink);
   }
-  .brand-en {
-    display: block; margin-top: 11px;
-    font-size: 10.5px; letter-spacing: 7px; font-weight: 600; color: var(--gold);
-    padding-left: 7px;
-  }
-  .hero-rule {
-    display: flex; align-items: center; justify-content: center; gap: 12px;
-    margin: 18px auto 15px; max-width: 250px;
-  }
-  .hero-rule::before, .hero-rule::after {
-    content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--hair));
-  }
-  .hero-rule::after { background: linear-gradient(90deg, var(--hair), transparent); }
-  .hero-rule .diamond { width: 5px; height: 5px; background: var(--gold); transform: rotate(45deg); flex: 0 0 auto; }
-  .event-name {
-    margin: 0; font-family: var(--serif); font-size: 19px; font-weight: 600; letter-spacing: 5px;
-    color: #fff; text-shadow: 0 2px 10px rgba(0,0,0,.4);
-  }
-  .hero .lede {
-    margin: 12px auto 0; font-size: 13.5px; color: rgba(244,239,228,.82); letter-spacing: 1px;
-    text-shadow: 0 1px 8px rgba(0,0,0,.4); max-width: 300px; line-height: 1.7;
-  }
+  .mast-meta { margin-top: 18px; font-size: 12px; letter-spacing: 4px; font-weight: 700; color: var(--forest); }
+  .lede { margin: 14px 0 0; font-size: 14.5px; line-height: 1.9; color: #4a453b; max-width: 30em; }
 
-  /* ===== 卡片 ===== */
-  .card {
-    position: relative;
-    background: linear-gradient(180deg, #faf8f2 0%, #f4efe4 100%);
-    border: 1px solid rgba(255,255,255,.6);
-    border-radius: 18px; padding: 26px 20px 24px;
-    box-shadow: var(--shadow-card);
+  /* ===== 編輯內容 ===== */
+  .editorial { padding: 8px 26px 12px; }
+  .dept { display: flex; align-items: baseline; gap: 14px; margin: 34px 0 16px; }
+  .dept-no {
+    font-family: var(--serif); font-weight: 900; font-size: 40px; line-height: 1;
+    color: var(--gold); flex: 0 0 auto; letter-spacing: -1px;
   }
+  .dept-t { font-family: var(--serif); font-weight: 700; font-size: 23px; letter-spacing: 3px; color: var(--ink); }
+  .dept-line { flex: 1; height: 1px; background: rgba(23,34,28,.18); align-self: center; }
 
-  /* ===== 表單欄位 ===== */
-  .field { margin-bottom: 17px; }
-  .field label:not(.photo-box) {
-    display: block; font-size: 14px; font-weight: 600; margin-bottom: 8px; color: var(--ink);
+  .pull {
+    font-family: var(--serif); font-weight: 400; font-size: 21px; line-height: 1.85;
+    color: var(--ink); margin: 0 0 6px; letter-spacing: .5px;
   }
-  .field label .req { color: var(--gold-dark); margin-left: 3px; }
+  .pull .drop { float: left; font-weight: 900; font-size: 62px; line-height: .8; margin: 6px 12px 0 0; color: var(--gold); }
+
+  .ed-body { font-size: 14.5px; line-height: 1.9; color: #4a453b; }
+  .ed-row { display: grid; grid-template-columns: 92px 1fr; gap: 10px; padding: 11px 0; border-top: 1px solid rgba(23,34,28,.1); }
+  .ed-row .k { font-weight: 700; color: var(--forest); letter-spacing: 1px; }
+  .ed-body.small { font-size: 13px; line-height: 1.85; color: #55503f; }
+  .ed-body.small ol { margin: 8px 0 0; padding-left: 20px; }
+  .ed-body.small ol li { margin-bottom: 9px; }
+  .ed-body.small .pub { font-weight: 700; color: var(--forest); margin-bottom: 6px; }
+
+  /* ===== 獎項 spread ===== */
+  .prizes { margin-top: 4px; }
+  .prize { padding: 18px 0; border-top: 2px solid var(--ink); display: grid; grid-template-columns: 1fr auto; gap: 6px 12px; align-items: baseline; }
+  .prize:last-child { border-bottom: 2px solid var(--ink); }
+  .prize-rank { font-size: 11px; letter-spacing: 3px; font-weight: 800; color: var(--gold); grid-column: 1 / -1; }
+  .prize-name { font-family: var(--serif); font-weight: 700; font-size: 21px; letter-spacing: 1px; color: var(--ink); }
+  .prize-amt { font-family: var(--serif); font-weight: 900; font-size: 26px; color: var(--forest); white-space: nowrap; }
+  .prize-sub { grid-column: 1 / -1; font-size: 12.5px; color: #6a6455; line-height: 1.6; }
+
+  /* ===== 報名 ENTRY（深綠對比頁） ===== */
+  .entry { background: var(--forest-deep); color: var(--cream); padding: 4px 26px 34px; margin-top: 30px; }
+  .entry .dept { border-top: 0; }
+  .entry .dept-no { color: var(--gold-br); }
+  .entry .dept-t { color: var(--cream); }
+  .field { margin-bottom: 22px; }
+  .field > label:not(.photo-box) {
+    display: block; font-size: 12px; letter-spacing: 2px; font-weight: 700;
+    color: rgba(244,239,228,.75); margin-bottom: 8px;
+  }
+  .field label .req { color: var(--gold-br); margin-left: 4px; }
+  .field label .opt { color: rgba(244,239,228,.5); font-weight: 400; letter-spacing: 1px; margin-left: 6px; font-size: 11px; }
   .input {
-    width: 100%; font-size: 16px; color: var(--ink);
-    padding: 13px 14px; background: var(--field);
-    border: 1.5px solid var(--border); border-radius: 11px;
-    outline: none; transition: border-color .15s, box-shadow .15s;
+    width: 100%; font-size: 16px; color: var(--cream); background: transparent;
+    border: 0; border-bottom: 1.5px solid rgba(244,239,228,.32); border-radius: 0;
+    padding: 10px 2px; outline: none; transition: border-color .2s;
+    font-family: inherit;
   }
-  .input::placeholder { color: #b3b9b1; }
-  .input:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,162,75,.22); }
-  textarea.input { resize: vertical; min-height: 62px; line-height: 1.6; font-family: inherit; }
-  .field label .opt { color: var(--muted); font-weight: 400; font-size: 12px; margin-left: 5px; }
+  .input::placeholder { color: rgba(244,239,228,.4); }
+  .input:focus { border-bottom-color: var(--gold-br); }
+  textarea.input { resize: vertical; min-height: 52px; line-height: 1.6; }
 
-  /* ===== 照片上傳 ===== */
   .photo-box {
     display: flex; flex-direction: column; align-items: center;
-    border: 1.5px dashed var(--mist); border-radius: 13px; background: #f7faf6;
-    text-align: center; padding: 26px 14px; cursor: pointer; transition: background .15s;
+    border: 1.5px dashed rgba(201,162,75,.5); border-radius: 4px; background: rgba(244,239,228,.04);
+    text-align: center; padding: 30px 14px; cursor: pointer; transition: background .15s;
   }
-  .photo-box:active { background: #eef4ec; }
-  .pb-icon { color: var(--forest); }
-  .pb-icon svg { width: 34px; height: 34px; }
-  .pb-t1 { font-weight: 700; margin-top: 10px; font-size: 15px; color: var(--ink); }
-  .pb-t2 { color: var(--muted); font-size: 12.5px; margin-top: 3px; }
+  .photo-box:active { background: rgba(244,239,228,.09); }
+  .pb-icon { color: var(--gold-br); } .pb-icon svg { width: 34px; height: 34px; }
+  .pb-t1 { font-weight: 700; margin-top: 10px; font-size: 15px; color: var(--cream); letter-spacing: 1px; }
+  .pb-t2 { color: rgba(244,239,228,.55); font-size: 12.5px; margin-top: 4px; }
   .photo-box input[type=file] { display: none; }
-  .preview { position: relative; border-radius: 13px; overflow: hidden; display: none; }
+  .preview { position: relative; border-radius: 4px; overflow: hidden; display: none; }
   .preview img { width: 100%; display: block; max-height: 340px; object-fit: cover; }
-  .preview .change {
-    position: absolute; right: 10px; bottom: 10px;
-    background: rgba(20,32,25,.68); color: #fff; font-size: 13px;
-    padding: 8px 14px; border-radius: 999px; font-weight: 600;
-  }
-  .preview .meta {
-    position: absolute; left: 10px; top: 10px;
-    background: rgba(47,74,60,.92); color:#fff; font-size:12px;
-    padding: 5px 11px; border-radius: 999px; font-weight:600; letter-spacing: .3px;
-  }
+  .preview .change { position: absolute; right: 10px; bottom: 10px; background: rgba(0,0,0,.66); color: #fff; font-size: 13px; padding: 8px 14px; border-radius: 999px; font-weight: 600; }
+  .preview .meta { position: absolute; left: 10px; top: 10px; background: rgba(201,162,75,.92); color:#1b2a22; font-size:12px; padding: 5px 11px; border-radius: 999px; font-weight:700; }
 
-  /* ===== 活動資訊 ===== */
-  .event {
-    background: linear-gradient(180deg, #faf8f2 0%, #f4efe4 100%);
-    border: 1px solid rgba(255,255,255,.6);
-    border-radius: 18px; padding: 24px 20px 8px; margin-bottom: 16px;
-    box-shadow: var(--shadow-card);
-  }
-  .event-lead { margin: 0 0 14px; font-size: 14px; line-height: 2; color: #3a463d; letter-spacing: .4px; }
-  .ev-block { border-top: 1px solid var(--border); }
-  .ev-block > summary {
-    list-style: none; cursor: pointer; padding: 14px 2px; min-height: 44px;
-    font-family: var(--serif); font-size: 16px; font-weight: 600; letter-spacing: 1.5px; color: var(--forest);
-    display: flex; align-items: center; gap: 10px;
-  }
-  .ev-block > summary::-webkit-details-marker { display: none; }
-  .ev-block > summary::before { content: ""; width: 4px; height: 15px; border-radius: 2px; background: var(--gold); flex: 0 0 auto; }
-  .ev-block > summary::after { content: "＋"; margin-left: auto; color: var(--mist); font-weight: 400; font-size: 17px; }
-  .ev-block[open] > summary::after { content: "－"; }
-  .ev-body { padding: 0 2px 14px; font-size: 13px; line-height: 1.85; color: #4a5650; }
-  .ev-body p { margin: 0 0 8px; }
-  .ev-body b { color: var(--ink); }
-  .ev-body ol { margin: 6px 0 0; padding-left: 20px; }
-  .ev-body ol li { margin-bottom: 7px; }
-  .ev-body .prize { padding: 11px 13px; background: #f1f5ef; border-radius: 10px; margin-bottom: 8px; border-left: 2px solid var(--hair); }
-  .ev-body .prize b { color: var(--forest); font-family: var(--serif); font-weight: 600; letter-spacing: .5px; font-size: 14px; }
-
-  /* ===== 個資同意 ===== */
-  .consent {
-    display: flex; gap: 10px; align-items: flex-start;
-    margin: 4px 0 8px; padding: 12px 13px; background: #f4f7f2;
-    border: 1px solid var(--border); border-radius: 11px;
-  }
-  .consent input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--forest); flex: 0 0 auto; }
-  .consent label { font-size: 12.5px; line-height: 1.6; color: #4a5650; }
-  details.terms { margin: 0 2px 16px; }
-  details.terms summary {
-    font-size: 12.5px; color: var(--mist); cursor: pointer; list-style: none;
-    text-decoration: underline; text-underline-offset: 2px;
-  }
+  .consent { display: flex; gap: 11px; align-items: flex-start; margin: 6px 0 10px; }
+  .consent input { width: 20px; height: 20px; margin: 1px 0 0; accent-color: var(--gold-br); flex: 0 0 auto; }
+  .consent label { font-size: 12.5px; line-height: 1.65; color: rgba(244,239,228,.8); }
+  details.terms { margin: 0 0 20px; }
+  details.terms summary { font-size: 12.5px; color: var(--gold-br); cursor: pointer; list-style: none; text-decoration: underline; text-underline-offset: 3px; }
   details.terms summary::-webkit-details-marker { display: none; }
-  details.terms .terms-body {
-    font-size: 12px; color: #6a756d; line-height: 1.7; margin-top: 8px;
-    padding: 10px 12px; background: #f7faf6; border-radius: 10px;
-  }
+  details.terms .terms-body { font-size: 12px; color: rgba(244,239,228,.62); line-height: 1.75; margin-top: 8px; padding: 12px; background: rgba(244,239,228,.05); border-radius: 6px; }
 
-  /* ===== 送出按鈕 ===== */
   .submit {
-    width: 100%; margin-top: 6px; cursor: pointer;
-    border: 1px solid rgba(201,162,75,.42);
-    font-size: 16px; font-weight: 700; letter-spacing: 6px;
-    color: var(--cream); padding: 17px; border-radius: 12px;
-    background: linear-gradient(135deg, #345140 0%, #2a4335 100%);
-    box-shadow: 0 12px 26px rgba(20,40,28,.34);
-    transition: transform .1s, box-shadow .2s, opacity .15s;
+    width: 100%; margin-top: 6px; cursor: pointer; border: 0;
+    font-size: 15px; font-weight: 800; letter-spacing: 6px;
+    color: var(--forest-deep); padding: 18px; border-radius: 2px;
+    background: var(--gold-br);
+    transition: transform .1s, background .2s, opacity .15s;
   }
-  .submit:not(:disabled):hover { box-shadow: 0 15px 32px rgba(20,40,28,.44); }
+  .submit:not(:disabled):hover { background: #d4ae57; }
   .submit:active { transform: translateY(1px); }
-  .submit:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
-  .submit .spin {
-    display: inline-block; width: 16px; height: 16px; vertical-align: -2px;
-    margin-right: 8px; border: 2.5px solid rgba(244,239,228,.45);
-    border-top-color: var(--cream); border-radius: 50%; animation: spin .7s linear infinite;
-  }
+  .submit:disabled { opacity: .4; cursor: not-allowed; }
+  .submit .spin { display: inline-block; width: 15px; height: 15px; vertical-align: -2px; margin-right: 8px; border: 2.5px solid rgba(27,42,34,.4); border-top-color: var(--forest-deep); border-radius: 50%; animation: spin .7s linear infinite; }
   @keyframes spin { to { transform: rotate(360deg); } }
+  .hint { text-align:center; color: rgba(244,239,228,.5); font-size: 11.5px; margin-top: 16px; letter-spacing: 1px; }
+  .err { display: none; margin-top: 12px; text-align: center; color: #f0a89c; font-size: 14px; font-weight: 700; }
 
-  .hint { text-align:center; color: var(--muted); font-size: 12px; margin-top: 14px; }
-  .err { display: none; margin-top: 12px; text-align: center; color: var(--danger); font-size: 14px; font-weight: 600; }
-
-  /* ===== 成功畫面（深底 → 淺色字） ===== */
-  .done { display: none; text-align: center; padding: 10px 6px 6px; }
-  .done .check { color: var(--gold); }
-  .done .check svg { width: 60px; height: 60px; }
+  /* ===== 成功畫面 ===== */
+  .done { display: none; background: var(--forest-deep); color: var(--cream); text-align: center; padding: 60px 26px 40px; min-height: 80vh; }
+  .done .check { color: var(--gold-br); }
+  .done .check svg { width: 62px; height: 62px; }
   .done .check svg circle { stroke-dasharray: 133; stroke-dashoffset: 133; animation: draw .6s cubic-bezier(.65,0,.35,1) forwards; }
   .done .check svg path { stroke-dasharray: 32; stroke-dashoffset: 32; animation: draw .4s .5s cubic-bezier(.65,0,.35,1) forwards; }
   @keyframes draw { to { stroke-dashoffset: 0; } }
-  .done h2 { margin: 18px 0 8px; font-family: var(--serif); font-size: 23px; font-weight: 600; letter-spacing: 3px; color: var(--cream); text-shadow: 0 2px 10px rgba(0,0,0,.45); }
-  .done p  { margin: 0 auto; color: rgba(244,239,228,.85); font-size: 14.5px; max-width: 300px; line-height: 1.7; text-shadow: 0 1px 8px rgba(0,0,0,.4); }
-  .line-btn {
-    display: flex; align-items: center; justify-content: center; gap: 10px;
-    width: 100%; margin-top: 24px; text-decoration: none;
-    background: var(--line); color: #fff; font-size: 18px; font-weight: 800;
-    padding: 16px; border-radius: 12px; letter-spacing: 1px;
-    box-shadow: 0 10px 22px rgba(6,199,85,.3);
-    transition: transform .08s, background .15s;
-  }
+  .done h2 { margin: 22px 0 10px; font-family: var(--serif); font-size: 30px; font-weight: 900; letter-spacing: 3px; }
+  .done p { margin: 0 auto; color: rgba(244,239,228,.8); font-size: 14.5px; max-width: 300px; line-height: 1.8; }
+  .line-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; margin-top: 30px; text-decoration: none; background: var(--line); color: #fff; font-size: 18px; font-weight: 800; padding: 16px; border-radius: 2px; letter-spacing: 1px; transition: transform .08s, background .15s; }
   .line-btn:active { transform: translateY(1px); background: var(--line-dark); }
   .line-btn svg { width: 24px; height: 24px; flex: 0 0 auto; }
-  .line-sub { margin-top: 13px; color: rgba(244,239,228,.72); font-size: 12.5px; line-height: 1.6; text-shadow: 0 1px 6px rgba(0,0,0,.4); }
-  .again-btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: 6px;
-    width: 100%; margin-top: 16px; border: 1.5px solid rgba(244,239,228,.4);
-    background: rgba(255,255,255,.1); color: var(--cream); font-size: 15px; font-weight: 700;
-    padding: 13px; border-radius: 12px; cursor: pointer;
-  }
-  .again-btn:active { background: rgba(255,255,255,.18); }
+  .line-sub { margin-top: 14px; color: rgba(244,239,228,.6); font-size: 12.5px; line-height: 1.6; }
+  .again-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; width: 100%; margin-top: 16px; border: 1.5px solid rgba(244,239,228,.35); background: transparent; color: var(--cream); font-size: 15px; font-weight: 700; padding: 14px; border-radius: 2px; cursor: pointer; letter-spacing: 2px; }
   .again-btn svg { width: 18px; height: 18px; }
 
-  /* ===== 頁尾 + 落款 + Demo 後台入口 ===== */
-  .seal {
-    width: 44px; height: 44px; margin: 0 auto 14px;
-    border: 1.5px solid var(--hair); border-radius: 9px;
-    display: flex; align-items: center; justify-content: center;
-    font-family: var(--serif); font-size: 22px; color: var(--gold);
-    box-shadow: 0 2px 10px rgba(0,0,0,.22);
-  }
-  .footer {
-    text-align:center; color: rgba(244,239,228,.7); font-size: 11px;
-    margin-top: auto; padding-top: 28px; line-height: 2; letter-spacing: 1.5px;
-    text-shadow: 0 1px 6px rgba(0,0,0,.4);
-  }
-  .inbox-link { color: rgba(244,239,228,.82); text-decoration: underline; cursor: pointer; font-size: 12px; }
+  /* ===== 版權頁 colophon ===== */
+  .footer { background: var(--forest-deep); color: rgba(244,239,228,.62); text-align: center; padding: 30px 26px 40px; font-size: 11px; letter-spacing: 2px; line-height: 2.1; border-top: 1px solid rgba(201,162,75,.25); }
+  .seal { width: 46px; height: 46px; margin: 0 auto 16px; border: 1.5px solid rgba(201,162,75,.5); border-radius: 3px; display: flex; align-items: center; justify-content: center; font-family: var(--serif); font-size: 24px; font-weight: 700; color: var(--gold-br); }
+  .inbox-link { color: rgba(201,162,75,.85); text-decoration: underline; cursor: pointer; font-size: 12px; }
 
   /* ===== Demo 後台 overlay ===== */
-  .overlay {
-    display: none; position: fixed; inset: 0; z-index: 50;
-    background: rgba(18,28,22,.5); backdrop-filter: blur(2px);
-    align-items: flex-end; justify-content: center;
-  }
+  .overlay { display: none; position: fixed; inset: 0; z-index: 50; background: rgba(18,28,22,.6); align-items: flex-end; justify-content: center; }
   .overlay.open { display: flex; }
-  .sheet {
-    width: 100%; max-width: 480px; background: #fff;
-    border-radius: 18px 18px 0 0; max-height: 86vh; display: flex; flex-direction: column;
-    box-shadow: 0 -10px 40px rgba(0,0,0,.3);
-  }
-  .sheet-head {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 18px 18px 12px; border-bottom: 1px solid var(--border);
-  }
-  .sheet-title { font-size: 16px; font-weight: 800; color: var(--ink); }
+  .sheet { width: 100%; max-width: 500px; background: var(--paper); border-radius: 6px 6px 0 0; max-height: 86vh; display: flex; flex-direction: column; }
+  .sheet-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 18px 12px; border-bottom: 1px solid rgba(23,34,28,.12); }
+  .sheet-title { font-family: var(--serif); font-size: 17px; font-weight: 700; color: var(--ink); }
   .sheet-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
-  .close-x {
-    border: 0; background: #eef2eb; color: var(--ink);
-    width: 34px; height: 34px; border-radius: 50%; cursor: pointer; flex: 0 0 auto;
-    display: flex; align-items: center; justify-content: center;
-  }
+  .close-x { border: 0; background: var(--paper2); color: var(--ink); width: 34px; height: 34px; border-radius: 50%; cursor: pointer; flex: 0 0 auto; display: flex; align-items: center; justify-content: center; }
   .close-x svg { width: 16px; height: 16px; }
-  .sheet-tools {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 12px 16px; font-size: 13px; color: var(--muted);
-  }
-  .tool-btn {
-    display: inline-flex; align-items: center; gap: 5px;
-    border: 1px solid var(--border); background:#fff; color: var(--ink);
-    font-size: 12.5px; padding: 8px 11px; border-radius: 10px; cursor: pointer; margin-left: 8px;
-  }
+  .sheet-tools { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; font-size: 13px; color: var(--muted); }
+  .tool-btn { display: inline-flex; align-items: center; gap: 5px; border: 1px solid rgba(23,34,28,.18); background:transparent; color: var(--ink); font-size: 12.5px; padding: 8px 11px; border-radius: 4px; cursor: pointer; margin-left: 8px; }
   .tool-btn svg { width: 14px; height: 14px; }
-  .tool-btn.danger { color: var(--danger); border-color: #e6c3bf; }
+  .tool-btn.danger { color: var(--danger); border-color: #d8b3ab; }
   .inbox-list { overflow-y: auto; padding: 8px 14px 24px; }
-  .inbox-card {
-    display: flex; gap: 12px; align-items: center; padding: 10px;
-    border: 1px solid var(--border); border-radius: 13px; margin-bottom: 10px; background: #fbfcfa;
-  }
-  .inbox-card img { width: 62px; height: 62px; object-fit: cover; border-radius: 9px; flex: 0 0 auto; background:#eee; }
+  .inbox-card { display: flex; gap: 12px; align-items: center; padding: 10px; border: 1px solid rgba(23,34,28,.12); border-radius: 6px; margin-bottom: 10px; background: rgba(255,255,255,.5); }
+  .inbox-card img { width: 62px; height: 62px; object-fit: cover; border-radius: 4px; flex: 0 0 auto; background:#ddd; }
   .ic-name { font-weight: 700; font-size: 15px; color: var(--ink); }
-  .ic-row { display: flex; align-items: center; gap: 5px; font-size: 13px; color: #5c665e; margin-top: 3px; }
+  .ic-row { display: flex; align-items: center; gap: 5px; font-size: 13px; color: #5c5648; margin-top: 3px; }
   .ic-row svg { width: 13px; height: 13px; color: var(--mist); flex: 0 0 auto; }
   .ic-row.time { font-size: 11.5px; color: var(--muted); }
   .empty { text-align: center; color: var(--muted); font-size: 14px; padding: 44px 10px; line-height: 1.9; }
 
-  /* ===== iPhone 安全區（瀏海／底部條）===== */
-  @supports (padding: max(0px)) {
-    .wrap {
-      padding-left: max(18px, env(safe-area-inset-left));
-      padding-right: max(18px, env(safe-area-inset-right));
-      padding-top: max(26px, env(safe-area-inset-top));
-      padding-bottom: max(40px, env(safe-area-inset-bottom));
-    }
-  }
+  @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+  .mast, .editorial > *, .entry { opacity: 0; animation: rise .6s cubic-bezier(.22,.61,.36,1) forwards; }
+  .editorial > *:nth-child(2){animation-delay:.05s} .editorial > *:nth-child(3){animation-delay:.1s}
+  @media (prefers-reduced-motion: reduce) { .mast, .editorial > *, .entry { opacity: 1; animation: none; } .done .check svg * { animation: none; stroke-dashoffset: 0; } * { transition-duration: .01ms !important; } }
 
-  /* ===== 進場動效（節制、由下淡入、staggered）===== */
-  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-  .banner, .hero, #eventInfo, #formCard { opacity: 0; animation: rise .55s cubic-bezier(.22,.61,.36,1) forwards; }
-  .hero { animation-delay: .08s; }
-  #eventInfo { animation-delay: .16s; }
-  #formCard { animation-delay: .24s; }
-
-  @media (prefers-reduced-motion: reduce) {
-    .banner, .hero, #eventInfo, #formCard { opacity: 1; animation: none; }
-    .done .check svg circle, .done .check svg path { animation: none; stroke-dashoffset: 0; }
-    * { transition-duration: .01ms !important; }
-  }
+  /* iPhone 安全區（滿版封面/瀏海/底部條） */
+  .cover-top { padding-top: max(20px, env(safe-area-inset-top)); }
+  .footer { padding-bottom: max(40px, env(safe-area-inset-bottom)); }
+  .done { padding-bottom: max(40px, env(safe-area-inset-bottom)); }
 </style>
 </head>
 <body>
-  <div class="bg"></div>
-
-  <!-- ================================================================== -->
-  <!--  ★★★  設定區：正式上線時填這兩行  ★★★                          -->
-  <!-- ================================================================== -->
   <script>
-    // 1) 部署 Apps Script 後的「網頁應用程式」網址（見 SETUP.md）
+    // 正式站：接後端寫入報名試算表；LINE 為真連結
     const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzqK_kY_S3Lh2y9ZmTBk9Ut8b0uHF64fj0sCkZ3Eu_E1SvhJ0M8vONGyE2uQdQ8CH-f/exec";
-
-    // 2) LINE 官方帳號加好友連結
     const LINE_URL = "https://lin.ee/VMKWuFH";
   </script>
-  <!-- ================================================================== -->
 
-  <div class="wrap">
-    <img class="banner" id="banner" src="assets/banner.webp" alt="鹿芝谷 蝶影 · 2026 紫斑蝶攝影競賽 2026/07/06–2026/08/31" />
-
-    <header class="hero">
-      <div class="brand">
-        <span class="brand-zh">鹿芝谷</span>
-        <span class="brand-en">DEER VALLEY</span>
+  <div class="mag">
+    <!-- 封面 -->
+    <div class="cover" id="banner">
+      <img src="assets/banner.webp" alt="鹿芝谷 蝶影 · 2026 紫斑蝶攝影競賽" />
+      <div class="cover-scrim"></div>
+      <div class="cover-top">
+        <span>鹿芝谷 DEER VALLEY</span><span class="rule"></span><span>攝影競賽</span>
       </div>
-      <div class="hero-rule"><span class="diamond"></span></div>
-      <h1 class="event-name">2026 紫斑蝶攝影競賽</h1>
-      <p class="lede" id="lede">拍下你眼中的紫色風景，上傳作品參加比賽</p>
+      <div class="scrollcue"></div>
+      <div class="cover-foot">
+        <span class="vol">VOL. 2026</span>
+        <span class="date">07.06 — 08.31</span>
+      </div>
+    </div>
+
+    <!-- 刊頭 -->
+    <header class="mast">
+      <div class="kicker">鹿芝谷 · Deer Valley</div>
+      <h1 class="mast-title">紫斑蝶<br>攝影競賽</h1>
+      <div class="mast-meta">2026 · 即日起 — 08.31</div>
+      <p class="lede" id="lede">拍下你眼中的紫色風景，上傳作品參加比賽。當紫斑蝶展翅，山林也染上流動的光影。</p>
     </header>
 
-    <!-- 活動資訊 -->
-    <section class="event" id="eventInfo">
-      <p class="event-lead">當紫斑蝶展開翅膀，山林也跟著染上流動的光影。邀請你拿起相機，捕捉牠們停駐、飛舞與穿越花間的瞬間，將眼中最美的紫色風景，留在一張照片裡。這一次，讓我們用鏡頭記錄自然，也用影像分享感動。</p>
+    <!-- 編輯內容 -->
+    <section class="editorial" id="eventInfo">
+      <div class="dept"><span class="dept-no">00</span><span class="dept-t">卷首</span><span class="dept-line"></span></div>
+      <p class="pull"><span class="drop">當</span>紫斑蝶展開翅膀，山林也跟著染上流動的光影。邀請你拿起相機，捕捉牠們停駐、飛舞與穿越花間的瞬間，將眼中最美的紫色風景，留在一張照片裡。</p>
 
-      <details class="ev-block" open>
-        <summary>活動資訊</summary>
-        <div class="ev-body">
-          <p><b>活動期間</b>：即日起至 2026 年 8 月 31 日止。</p>
-          <p><b>活動對象</b>：一般遊客、親子、攝影愛好者（免費參與，無報名上限）。</p>
-          <p><b>現場互動獎勵</b>：於園區現場拍照留念，發布貼文或限時動態並標註鹿芝谷官方帳號，至售票櫃台出示紀錄，每人即可領取可愛鑰匙圈乙個（數量有限，送完為止）。</p>
-        </div>
-      </details>
+      <div class="dept"><span class="dept-no">01</span><span class="dept-t">活動資訊</span><span class="dept-line"></span></div>
+      <div class="ed-body">
+        <div class="ed-row"><span class="k">活動期間</span><span class="v">即日起至 2026 年 8 月 31 日止。</span></div>
+        <div class="ed-row"><span class="k">活動對象</span><span class="v">一般遊客、親子、攝影愛好者（免費參與，無報名上限）。</span></div>
+        <div class="ed-row"><span class="k">現場獎勵</span><span class="v">於園區現場拍照留念，發布貼文或限時動態並標註鹿芝谷官方帳號，至售票櫃台出示紀錄，每人即可領取可愛鑰匙圈乙個（數量有限，送完為止）。</span></div>
+      </div>
 
-      <details class="ev-block">
-        <summary>獎項資訊</summary>
-        <div class="ev-body">
-          <div class="prize"><b>飛舞之眼金獎</b>（1 名）<br>現金 NT$5,000 ＋ 豪華紀念禮包 ＋ 參與獎狀</div>
-          <div class="prize"><b>自然美感獎</b>（2 名）<br>現金 NT$2,000 ＋ 豐富紀念禮包 ＋ 參與獎狀</div>
-          <div class="prize"><b>社群人氣獎</b>（1 名）<br>主辦單位將於官方 Instagram 精選動態開放投票，獲點讚愛心數最多之照片，可獲得精美紀念禮包 ＋ 參與獎狀。</div>
+      <div class="dept"><span class="dept-no">02</span><span class="dept-t">獎項</span><span class="dept-line"></span></div>
+      <div class="prizes">
+        <div class="prize">
+          <span class="prize-rank">金獎 · GOLD · 1 名</span>
+          <span class="prize-name">飛舞之眼金獎</span>
+          <span class="prize-amt">NT$5,000</span>
+          <span class="prize-sub">豪華紀念禮包 ＋ 參與獎狀</span>
         </div>
-      </details>
+        <div class="prize">
+          <span class="prize-rank">美感獎 · SILVER · 2 名</span>
+          <span class="prize-name">自然美感獎</span>
+          <span class="prize-amt">NT$2,000</span>
+          <span class="prize-sub">豐富紀念禮包 ＋ 參與獎狀</span>
+        </div>
+        <div class="prize">
+          <span class="prize-rank">人氣獎 · POPULAR · 1 名</span>
+          <span class="prize-name">社群人氣獎</span>
+          <span class="prize-amt">禮包</span>
+          <span class="prize-sub">官方 Instagram 精選動態開放投票，愛心數最多者獲精美紀念禮包 ＋ 參與獎狀。</span>
+        </div>
+      </div>
 
-      <details class="ev-block">
-        <summary>得獎公布與注意事項</summary>
-        <div class="ev-body">
-          <p><b>公布時間</b>：2026 年 9 月 15 日（二）11:00 am，公布於鹿芝谷官方 Facebook、Instagram 及 Threads。</p>
-          <p><b>活動注意事項</b>：</p>
-          <ol>
-            <li>每位參加者限得獎一次。若重複投稿或使用相同作品，僅計入一筆紀錄。</li>
-            <li>參賽作品須為 2026 年於鹿芝谷園區內實地拍攝。參賽者須保留原始圖檔，嚴禁盜用他人作品或使用 AI 合成，經查證屬實將取消參賽與得獎資格。</li>
-            <li>所有參賽作品僅限非商業用途使用。</li>
-            <li>得獎者須提供身分證件影本及完整聯絡資訊，並依規定完成稅務與資料確認程序後方可領獎。</li>
-            <li>本活動僅限台灣地區收件與郵寄，恕不寄送至海外。</li>
-          </ol>
-        </div>
-      </details>
+      <div class="dept"><span class="dept-no">03</span><span class="dept-t">得獎公布與注意事項</span><span class="dept-line"></span></div>
+      <div class="ed-body small">
+        <p class="pub">公布時間：2026 年 9 月 15 日（二）11:00 am，公布於鹿芝谷官方 Facebook、Instagram 及 Threads。</p>
+        <ol>
+          <li>每位參加者限得獎一次。若重複投稿或使用相同作品，僅計入一筆紀錄。</li>
+          <li>參賽作品須為 2026 年於鹿芝谷園區內實地拍攝。參賽者須保留原始圖檔，嚴禁盜用他人作品或使用 AI 合成，經查證屬實將取消參賽與得獎資格。</li>
+          <li>所有參賽作品僅限非商業用途使用。</li>
+          <li>得獎者須提供身分證件影本及完整聯絡資訊，並依規定完成稅務與資料確認程序後方可領獎。</li>
+          <li>本活動僅限台灣地區收件與郵寄，恕不寄送至海外。</li>
+        </ol>
+      </div>
     </section>
 
-    <!-- 表單 -->
-    <div class="card" id="formCard">
+    <!-- 報名 ENTRY -->
+    <div class="entry" id="formCard">
+      <div class="dept"><span class="dept-no">04</span><span class="dept-t">報名 ENTRY</span><span class="dept-line" style="background:rgba(244,239,228,.25)"></span></div>
+
       <div class="field">
         <label for="name">姓名<span class="req">*</span></label>
         <input class="input" id="name" type="text" placeholder="請輸入姓名" autocomplete="name" />
       </div>
-
       <div class="field">
         <label for="phone">電話<span class="req">*</span></label>
         <input class="input" id="phone" type="tel" inputmode="numeric" placeholder="09xx-xxx-xxx" autocomplete="tel" />
       </div>
-
       <div class="field">
         <label>拍攝照片<span class="req">*</span></label>
         <label class="photo-box" id="photoBox" for="photo">
-          <span class="pb-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A1.5 1.5 0 0 1 4.5 7h2l1.1-1.7A1 1 0 0 1 8.4 4.8h7.2a1 1 0 0 1 .8.5L17.5 7h2A1.5 1.5 0 0 1 21 8.5v9A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.3"/></svg>
-          </span>
+          <span class="pb-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A1.5 1.5 0 0 1 4.5 7h2l1.1-1.7A1 1 0 0 1 8.4 4.8h7.2a1 1 0 0 1 .8.5L17.5 7h2A1.5 1.5 0 0 1 21 8.5v9A1.5 1.5 0 0 1 19.5 19h-15A1.5 1.5 0 0 1 3 17.5z"/><circle cx="12" cy="13" r="3.3"/></svg></span>
           <span class="pb-t1">點這裡上傳照片</span>
           <span class="pb-t2">選擇相簿照片，或直接拍一張</span>
           <input id="photo" type="file" accept="image/*" />
@@ -427,12 +329,10 @@
           <div class="change">更換照片</div>
         </div>
       </div>
-
       <div class="field">
         <label for="postLink">發文連結<span class="opt">選填</span></label>
-        <input class="input" id="postLink" type="url" inputmode="url" placeholder="貼上你的貼文／限動連結（IG、FB、Threads…）" autocomplete="off" />
+        <input class="input" id="postLink" type="url" inputmode="url" placeholder="IG、FB、Threads 貼文／限動連結" autocomplete="off" />
       </div>
-
       <div class="field">
         <label for="message">留給鹿芝谷的一句話<span class="opt">選填</span></label>
         <textarea class="input" id="message" rows="2" placeholder="想對鹿芝谷說的話"></textarea>
@@ -444,9 +344,7 @@
       </div>
       <details class="terms">
         <summary>個人資料告知</summary>
-        <div class="terms-body">
-          你所填寫的姓名與電話，僅供主辦單位（鹿芝谷）於本活動之聯繫與得獎通知使用，保存至活動結束後依規定銷毀，不作其他用途。完整活動辦法與注意事項請見上方「活動資訊」。
-        </div>
+        <div class="terms-body">你所填寫的姓名與電話，僅供主辦單位（鹿芝谷）於本活動之聯繫與得獎通知使用，保存至活動結束後依規定銷毀，不作其他用途。</div>
       </details>
 
       <button class="submit" id="submitBtn" disabled>送出參賽作品</button>
@@ -456,53 +354,36 @@
 
     <!-- 成功畫面 -->
     <div class="done" id="doneCard">
-      <div class="check">
-        <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="21"/><path d="M15 24.5l6 6 12-13"/></svg>
-      </div>
-      <h2>登記完成，感謝參加</h2>
-      <p>你的參賽作品已經收到，祝你在鹿芝谷拍出最美的蝴蝶。</p>
+      <div class="check"><svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="24" r="21"/><path d="M15 24.5l6 6 12-13"/></svg></div>
+      <h2>登記完成</h2>
+      <p>你的參賽作品已經收到，祝你在鹿芝谷拍出最美的紫斑蝶。</p>
       <a class="line-btn" id="lineBtn" href="#" target="_blank" rel="noopener">
-        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-          <path d="M12 2C6.48 2 2 5.64 2 10.12c0 4.01 3.55 7.37 8.35 8.01.33.07.77.22.88.5.1.26.06.66.03.92l-.14.86c-.04.26-.2 1.02.9.56 1.1-.46 5.93-3.49 8.09-5.98C21.5 13.4 22 11.83 22 10.12 22 5.64 17.52 2 12 2ZM8.2 12.66H6.61c-.23 0-.42-.19-.42-.42V8.94c0-.23.19-.42.42-.42.24 0 .43.19.43.42v2.88H8.2c.24 0 .43.19.43.42 0 .23-.19.42-.43.42Zm1.67-.42c0 .23-.19.42-.43.42-.23 0-.42-.19-.42-.42V8.94c0-.23.19-.42.42-.42.24 0 .43.19.43.42v3.3Zm3.86 0c0 .18-.12.34-.29.4-.05.02-.09.02-.14.02-.14 0-.26-.06-.34-.17l-1.36-1.85v1.6c0 .23-.19.42-.43.42-.23 0-.42-.19-.42-.42V8.94c0-.18.12-.34.29-.4.04-.01.09-.02.13-.02.13 0 .26.07.34.17l1.37 1.85V8.94c0-.23.19-.42.42-.42.24 0 .43.19.43.42v3.3Zm2.99-2.07c.24 0 .43.19.43.42 0 .24-.19.43-.43.43h-1.16v.74h1.16c.24 0 .43.19.43.42 0 .24-.19.43-.43.43h-1.58c-.23 0-.42-.19-.42-.43V8.94c0-.23.19-.42.42-.42h1.58c.24 0 .43.19.43.42 0 .24-.19.43-.43.43h-1.16v.73h1.16Z"/>
-        </svg>
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 5.64 2 10.12c0 4.01 3.55 7.37 8.35 8.01.33.07.77.22.88.5.1.26.06.66.03.92l-.14.86c-.04.26-.2 1.02.9.56 1.1-.46 5.93-3.49 8.09-5.98C21.5 13.4 22 11.83 22 10.12 22 5.64 17.52 2 12 2ZM8.2 12.66H6.61c-.23 0-.42-.19-.42-.42V8.94c0-.23.19-.42.42-.42.24 0 .43.19.43.42v2.88H8.2c.24 0 .43.19.43.42 0 .23-.19.42-.43.42Zm1.67-.42c0 .23-.19.42-.43.42-.23 0-.42-.19-.42-.42V8.94c0-.23.19-.42.42-.42.24 0 .43.19.43.42v3.3Zm3.86 0c0 .18-.12.34-.29.4-.05.02-.09.02-.14.02-.14 0-.26-.06-.34-.17l-1.36-1.85v1.6c0 .23-.19.42-.43.42-.23 0-.42-.19-.42-.42V8.94c0-.18.12-.34.29-.4.04-.01.09-.02.13-.02.13 0 .26.07.34.17l1.37 1.85V8.94c0-.23.19-.42.42-.42.24 0 .43.19.43.42v3.3Zm2.99-2.07c.24 0 .43.19.43.42 0 .24-.19.43-.43.43h-1.16v.74h1.16c.24 0 .43.19.43.42 0 .24-.19.43-.43.43h-1.58c-.23 0-.42-.19-.42-.43V8.94c0-.23.19-.42.42-.42h1.58c.24 0 .43.19.43.42 0 .24-.19.43-.43.43h-1.16v.73h1.16Z"/></svg>
         加入 LINE 好友
       </a>
       <div class="line-sub">想收到得獎通知，可以順手加入官方 LINE（選填，不加也已完成登記）</div>
-      <button class="again-btn" id="againBtn">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
-        再登記一位
-      </button>
+      <button class="again-btn" id="againBtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>再登記一位</button>
     </div>
 
+    <!-- 版權頁 -->
     <div class="footer">
       <div class="seal">蝶</div>
-      鹿芝谷 Deer Valley · 蝶影<br>
+      鹿芝谷 DEER VALLEY<br>蝶影 · 2026 紫斑蝶攝影競賽<br>
       <span class="inbox-link" id="inboxLink">查看已收到的登記（Demo 後台）</span>
     </div>
 
-    <!-- Demo 後台：本機暫存，方便完整測試「客人上傳→我收到」 -->
+    <!-- Demo 後台 -->
     <div class="overlay" id="inboxOverlay">
       <div class="sheet">
         <div class="sheet-head">
-          <div>
-            <div class="sheet-title">Demo 後台 · 已收到的登記</div>
-            <div class="sheet-sub">本機暫存（正式版請看 Google 試算表）</div>
-          </div>
-          <button class="close-x" id="closeInbox" aria-label="關閉">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg>
-          </button>
+          <div><div class="sheet-title">Demo 後台 · 已收到的登記</div><div class="sheet-sub">本機暫存（正式版請看 Google 試算表）</div></div>
+          <button class="close-x" id="closeInbox" aria-label="關閉"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
         </div>
         <div class="sheet-tools">
           <span id="inboxCount">共 0 筆</span>
           <div>
-            <button class="tool-btn" id="exportCsv">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v10m0 0 3.5-3.5M12 13.5 8.5 10M4.5 16.5v2A1.5 1.5 0 0 0 6 20h12a1.5 1.5 0 0 0 1.5-1.5v-2"/></svg>
-              匯出 CSV
-            </button>
-            <button class="tool-btn danger" id="clearInbox">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M9 6.5V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1.5M6.5 6.5l.8 12a1.5 1.5 0 0 0 1.5 1.4h6.4a1.5 1.5 0 0 0 1.5-1.4l.8-12"/></svg>
-              全部清空
-            </button>
+            <button class="tool-btn" id="exportCsv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.5v10m0 0 3.5-3.5M12 13.5 8.5 10M4.5 16.5v2A1.5 1.5 0 0 0 6 20h12a1.5 1.5 0 0 0 1.5-1.5v-2"/></svg>匯出 CSV</button>
+            <button class="tool-btn danger" id="clearInbox"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 6.5h15M9 6.5V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v1.5M6.5 6.5l.8 12a1.5 1.5 0 0 0 1.5 1.4h6.4a1.5 1.5 0 0 0 1.5-1.4l.8-12"/></svg>全部清空</button>
           </div>
         </div>
         <div class="inbox-list" id="inboxList"></div>
@@ -521,7 +402,6 @@
 
   let compressedDataUrl = null;
 
-  // ===== 表單有效性 =====
   function phoneValid(v) { return (v || "").replace(/\D/g, "").length >= 8; }
   function refresh() {
     const ok = nameEl.value.trim() && phoneValid(phoneEl.value) && compressedDataUrl && consentEl.checked;
@@ -531,7 +411,6 @@
   phoneEl.addEventListener("input", refresh);
   consentEl.addEventListener("change", refresh);
 
-  // ===== 照片：選檔 → 校正方向 → 壓縮 → 預覽 =====
   photoEl.addEventListener("change", async (e) => {
     const file = e.target.files && e.target.files[0];
     if (file) await processPhoto(file);
@@ -539,7 +418,6 @@
 
   async function processPhoto(file) {
     const MAX = 1600;
-    // 優先用 createImageBitmap 並套用 EXIF 方向（避免 iPhone 直拍照片變橫躺）
     let bitmap = null;
     try { bitmap = await createImageBitmap(file, { imageOrientation: "from-image" }); } catch (_) {}
     if (bitmap) {
@@ -551,7 +429,6 @@
       finishPhoto(c.toDataURL("image/jpeg", 0.85));
       return;
     }
-    // 後備：FileReader + Image（等 onload 完成才 resolve）
     const dataUrl = await new Promise(res => { const r = new FileReader(); r.onload = ev => res(ev.target.result); r.readAsDataURL(file); });
     await new Promise((resolve) => {
       const img = new Image();
@@ -580,32 +457,18 @@
 
   preview.addEventListener("click", () => photoEl.click());
 
-  // ===== 送出 =====
   submitBtn.addEventListener("click", async () => {
     if (submitBtn.disabled) return;
     errEl.style.display = "none";
     setLoading(true);
-
     const payload = { name: nameEl.value.trim(), phone: phoneEl.value.trim(), photo: compressedDataUrl, postLink: postEl.value.trim(), message: msgEl.value.trim(), ua: navigator.userAgent };
-
-    if (!BACKEND_READY) {  // demo 模式：模擬成功，方便完整測試流程
-      setTimeout(() => { saveSubmission(payload); showDone(); }, 900);
-      return;
-    }
-
+    if (!BACKEND_READY) { setTimeout(() => { saveSubmission(payload); showDone(); }, 900); return; }
     try {
-      const res = await fetch(GOOGLE_SCRIPT_URL, {
-        method: "POST",
-        headers: { "Content-Type": "text/plain;charset=utf-8" },
-        body: JSON.stringify(payload),
-      });
+      const res = await fetch(GOOGLE_SCRIPT_URL, { method: "POST", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(payload) });
       const data = await res.json().catch(() => ({ ok: res.ok }));
       if (data && data.ok) { saveSubmission(payload); showDone(); }
       else { throw new Error("server"); }
-    } catch (err) {
-      setLoading(false);
-      errEl.style.display = "block";
-    }
+    } catch (err) { setLoading(false); errEl.style.display = "block"; }
   });
 
   function setLoading(on) {
@@ -618,19 +481,15 @@
     const lineBtn = $("lineBtn");
     const lineReady = LINE_URL && !LINE_URL.startsWith("PASTE_");
     lineBtn.href = lineReady ? LINE_URL : "#";
-    lineBtn.onclick = lineReady ? null : (e) => {
-      e.preventDefault();
-      alert("（Demo）此處將連到你的 LINE 官方帳號加好友頁。\n請在 index.html 最上方填入 LINE_URL。");
-    };
+    lineBtn.onclick = lineReady ? null : (e) => { e.preventDefault(); alert("（Demo）此處將連到你的 LINE 官方帳號加好友頁。"); };
     $("formCard").style.display = "none";
     $("eventInfo").style.display = "none";
     $("banner").style.display = "none";
-    $("lede").style.display = "none";
+    document.querySelector(".mast").style.display = "none";
     $("doneCard").style.display = "block";
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  // ===== 再登記一位：重設表單 =====
   function resetForm() {
     nameEl.value = ""; phoneEl.value = ""; photoEl.value = "";
     postEl.value = ""; msgEl.value = "";
@@ -641,13 +500,12 @@
     $("doneCard").style.display = "none";
     $("eventInfo").style.display = "";
     $("banner").style.display = "";
-    $("lede").style.display = "";
+    document.querySelector(".mast").style.display = "";
     $("formCard").style.display = "block";
     refresh();
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
-  // ===== Demo 後台：本機暫存的登記清單 =====
   const STORE_KEY = "butterfly_submissions";
   function loadStore() { try { return JSON.parse(localStorage.getItem(STORE_KEY) || "[]"); } catch (e) { return []; } }
   function saveStore(arr) { try { localStorage.setItem(STORE_KEY, JSON.stringify(arr)); return true; } catch (e) { return false; } }
@@ -678,10 +536,7 @@
   }
   function openInbox()  { renderInbox(); $("inboxOverlay").classList.add("open"); }
   function closeInbox() { $("inboxOverlay").classList.remove("open"); }
-  function clearInbox() {
-    if (!confirm("確定要清空所有登記資料嗎？（僅清除本機 Demo 暫存）")) return;
-    localStorage.removeItem(STORE_KEY); renderInbox();
-  }
+  function clearInbox() { if (!confirm("確定要清空所有登記資料嗎？（僅清除本機 Demo 暫存）")) return; localStorage.removeItem(STORE_KEY); renderInbox(); }
   function exportCsv() {
     const arr = loadStore();
     if (!arr.length) { alert("目前沒有資料可匯出"); return; }
@@ -689,18 +544,15 @@
     const csv = "﻿" + rows.map(r => r.map(c => `"${String(c).replace(/"/g,'""')}"`).join(",")).join("\n");
     const a = document.createElement("a");
     a.href = URL.createObjectURL(new Blob([csv], { type: "text/csv;charset=utf-8" }));
-    a.download = "蝴蝶比賽登記.csv"; a.click(); URL.revokeObjectURL(a.href);
+    a.download = "蝶影登記.csv"; a.click(); URL.revokeObjectURL(a.href);
   }
 
-  // ===== 事件綁定 =====
   $("againBtn").addEventListener("click", resetForm);
   $("inboxLink").addEventListener("click", openInbox);
   $("closeInbox").addEventListener("click", closeInbox);
   $("clearInbox").addEventListener("click", clearInbox);
   $("exportCsv").addEventListener("click", exportCsv);
   $("inboxOverlay").addEventListener("click", (e) => { if (e.target.id === "inboxOverlay") closeInbox(); });
-
-  // 正式上線（已接後端）時，隱藏 Demo 後台入口
   if (BACKEND_READY) $("inboxLink").style.display = "none";
 </script>
 </body>
