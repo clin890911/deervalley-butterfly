@@ -45,6 +45,12 @@
     min-height: 100vh; display: flex; flex-direction: column;
   }
 
+  /* ===== 主視覺 banner ===== */
+  .banner {
+    width: 100%; display: block; border-radius: 16px; margin-bottom: 20px;
+    box-shadow: 0 14px 34px rgba(0,0,0,.3);
+  }
+
   /* ===== 頁首 ===== */
   .hero { text-align: center; padding: 8px 6px 20px; color: var(--cream); }
   .brand { line-height: 1; }
@@ -289,6 +295,8 @@
   <!-- ================================================================== -->
 
   <div class="wrap">
+    <img class="banner" id="banner" src="assets/banner.webp" alt="鹿芝谷蝶類攝影競賽 蝶影 2026/07/06–2026/08/31" />
+
     <header class="hero">
       <div class="brand">
         <span class="brand-zh">鹿芝谷</span>
@@ -560,6 +568,7 @@
     };
     $("formCard").style.display = "none";
     $("eventInfo").style.display = "none";
+    $("banner").style.display = "none";
     $("lede").style.display = "none";
     $("doneCard").style.display = "block";
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -575,6 +584,7 @@
     submitBtn.innerHTML = "送出參賽作品";
     $("doneCard").style.display = "none";
     $("eventInfo").style.display = "";
+    $("banner").style.display = "";
     $("lede").style.display = "";
     $("formCard").style.display = "block";
     refresh();
