@@ -43,8 +43,10 @@ function doPost(e) {
     file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
     const photoUrl = file.getUrl();
 
-    // --- 2. 寫一列進試算表 ---
-    getSheet().appendRow([new Date(), name, phone, photoUrl]);
+    // --- 2. 寫一列進試算表（電話以純文字寫入，保留開頭 0，避免被當數字） ---
+    const sheet = getSheet();
+    sheet.appendRow([new Date(), name, phone, photoUrl]);
+    sheet.getRange(sheet.getLastRow(), 3).setNumberFormat("@").setValue(phone);
 
     // --- 3. 回傳成功 ---
     return json({ ok: true, url: photoUrl });
