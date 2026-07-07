@@ -23,8 +23,8 @@ function doPost(e) {
     const name  = (body.name  || "").toString().trim();
     const phone = (body.phone || "").toString().trim();
     const photo = (body.photo || "").toString();
-    const postLink = (body.postLink || "").toString().trim();  // 發文連結（選填）
-    const message  = (body.message  || "").toString().trim();  // 給鹿芝谷的話（選填）
+    const postLink = (body.postLink || "").toString().trim();  // 社群帳號（選填）
+    const message  = (body.message  || "").toString().trim();  // 照片含義（選填）
 
     if (!name || !phone || !photo) {
       return json({ ok: false, error: "缺少必要欄位" });
@@ -65,7 +65,7 @@ function getSheet() {
   const ss = SpreadsheetApp.getActiveSpreadsheet();
   if (!ss) throw new Error("找不到綁定的試算表；請從試算表的「擴充功能 → Apps Script」建立此腳本");
   const sheet = ss.getSheets()[0];
-  if (sheet.getLastRow() === 0) sheet.appendRow(["時間", "姓名", "電話", "照片連結", "發文連結", "給鹿芝谷的話"]);
+  if (sheet.getLastRow() === 0) sheet.appendRow(["時間", "姓名", "電話", "照片連結", "社群帳號", "照片含義"]);
   return sheet;
 }
 
