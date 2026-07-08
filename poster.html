@@ -14,130 +14,95 @@
 <link rel="icon" type="image/png" href="assets/favicon.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet" />
 <style>
   :root {
-    --ink: #17221c;
-    --cream: #f4efe4;
-    --gold: #a97f2b;
-    --gold-br: #d8b25a;   /* 亮金：印在深色照片上更醒目 */
-    --forest-deep: #10160f;
+    --cream: #f3eee2;
+    --gold: #cdaa62;
+    --deep: #0d120c;
   }
   * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
   html, body { margin: 0; padding: 0; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
-    color: var(--cream); background: #0c110b; -webkit-text-size-adjust: 100%;
+    color: var(--cream); background: #0a0d09; -webkit-text-size-adjust: 100%;
     min-height: 100vh; display: grid; place-items: center; padding: 2.2vmin;
   }
 
-  /* ===== A4 版面（210 × 297，比例鎖定，隨螢幕縮放；列印為真 A4） ===== */
+  /* ===== A4 版面 ===== */
   .sheet {
     position: relative; overflow: hidden;
     aspect-ratio: 210 / 297;
     width: min(96vw, calc((100vh - 4.4vmin) * 210 / 297));
     container-type: inline-size;
-    background: #0f150e;
-    box-shadow: 0 18px 70px rgba(0,0,0,.6), 0 2px 0 rgba(255,255,255,.04) inset;
+    /* 底圖裁切到右側無文字區（飛舞蝴蝶＋雲＋樹叢），避開中央燒死的標題與日期 */
+    background: var(--deep) url("assets/banner.webp") no-repeat;
+    background-size: 280%;
+    background-position: 100% 32%;
+    box-shadow: 0 18px 70px rgba(0,0,0,.55);
   }
 
-  /* 底圖 + 為文字可讀性設計的漸層遮罩（上暗→中透→下最暗，保留照片質感） */
-  .bg { position: absolute; inset: 0; }
-  .bg img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  /* 上緣微暗托住標題，中段透出蝴蝶，下半部漸深放內容 */
   .scrim {
     position: absolute; inset: 0;
     background:
       linear-gradient(180deg,
-        rgba(12,17,10,.93) 0%,
-        rgba(12,17,10,.84) 18%,
-        rgba(12,17,10,.82) 40%,
-        rgba(12,17,10,.58) 58%,
-        rgba(10,14,9,.88) 74%,
-        rgba(9,12,8,.97) 100%);
+        rgba(13,18,12,.58) 0%,
+        rgba(13,18,12,.34) 15%,
+        rgba(13,18,12,.20) 30%,
+        rgba(13,18,12,.34) 45%,
+        rgba(12,16,11,.70) 57%,
+        rgba(10,14,9,.92) 72%,
+        rgba(9,12,8,.98) 100%);
   }
-  .tint { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 46%, rgba(47,74,60,.18), transparent 70%); mix-blend-mode: soft-light; }
 
-  /* 金色細框（poster 質感） */
-  .frame { position: absolute; inset: 4.2cqw; border: 1px solid rgba(216,178,90,.5); pointer-events: none; z-index: 4; }
-  .frame::before, .frame::after {
-    content: "蝶"; position: absolute; left: 50%; transform: translateX(-50%);
-    font-family: "Noto Serif TC", serif; font-weight: 700; font-size: 3.2cqw;
-    color: var(--gold-br); background: #10160f; padding: 0 1.4cqw;
-  }
-  .frame::before { top: -1.8cqw; } .frame::after { bottom: -1.8cqw; }
-
-  /* 內容網格：對齊統一邊界，垂直分三帶（刊頭／主標／資訊） */
+  /* 內容：底部錨定 */
   .content {
-    position: relative; z-index: 3; height: 100%;
-    padding: 6.5cqw 8cqw 6.5cqw;
-    display: flex; flex-direction: column;
+    position: relative; z-index: 2; height: 100%;
+    padding: 9cqw 11cqw 9cqw;
+    display: flex; flex-direction: column; justify-content: flex-end;
   }
 
-  /* — 刊頭 — */
-  .masthead { display: flex; align-items: center; gap: 3cqw; justify-content: center;
-    font-size: 2.6cqw; letter-spacing: 0.6cqw; font-weight: 700; color: rgba(244,239,228,.9); }
-  .masthead .rule { width: 7cqw; height: 1px; background: rgba(216,178,90,.6); }
-
-  /* — 主標帶 — */
-  .hero { margin-top: 3.4cqw; text-align: center; }
-  .hero .kicker { font-size: 2.9cqw; letter-spacing: 1.2cqw; font-weight: 700; color: var(--gold-br); }
-  .hero .title {
-    margin: 2.2cqw 0 0; font-family: "Noto Serif TC", serif; font-weight: 900;
-    font-size: 15.5cqw; line-height: .96; letter-spacing: 1.8cqw;
-    color: #fbf7ec; text-shadow: 0 0.6cqw 5cqw rgba(0,0,0,.55);
+  /* — 主標區 — */
+  .head { text-align: center; }
+  .kicker { font-size: 2.5cqw; letter-spacing: 1cqw; font-weight: 500; color: var(--gold); }
+  .title {
+    margin: 2.6cqw 0 0; font-family: "Noto Serif TC", serif; font-weight: 900;
+    font-size: 15cqw; line-height: 1; letter-spacing: 2.4cqw; color: #f8f3e8;
+    text-shadow: 0 0.4cqw 3.4cqw rgba(0,0,0,.5);
   }
-  .hero .sub {
-    margin: 3cqw 0 0; font-family: "Noto Serif TC", serif; font-weight: 700;
-    font-size: 6.2cqw; letter-spacing: 1.6cqw; color: #fbf7ec;
-    text-shadow: 0 0.4cqw 3cqw rgba(0,0,0,.6);
+  .sub {
+    margin: 2.6cqw 0 0; font-family: "Noto Serif TC", serif; font-weight: 500;
+    font-size: 5.2cqw; letter-spacing: 2.2cqw; color: #efe9dc;
+    text-shadow: 0 0.3cqw 2.4cqw rgba(0,0,0,.5);
   }
-  .hero .tag {
-    margin: 3cqw auto 0; max-width: 66cqw; font-size: 2.9cqw; line-height: 1.7;
-    color: rgba(244,239,228,.82); letter-spacing: .3cqw;
-    text-shadow: 0 0.3cqw 2.4cqw rgba(0,0,0,.7);
-  }
-  /* 日期 / 免費 徽章列 */
-  .meta { margin-top: 4.6cqw; display: flex; justify-content: center; align-items: stretch; gap: 0; }
-  .meta .cell { padding: 0 5cqw; text-align: center; }
-  .meta .cell + .cell { border-left: 1px solid rgba(216,178,90,.45); }
-  .meta .ck { font-size: 2.4cqw; letter-spacing: .7cqw; color: var(--gold-br); font-weight: 700; }
-  .meta .cv { margin-top: 1.4cqw; font-family: "Noto Serif TC", serif; font-size: 4.7cqw; font-weight: 900; color: #fbf7ec; letter-spacing: .3cqw; white-space: nowrap; }
+  .rule { width: 11cqw; height: 1px; margin: 4cqw auto; background: rgba(205,170,98,.75); }
+  .tag { font-family: "Noto Serif TC", serif; font-weight: 300; font-size: 3.2cqw; letter-spacing: .7cqw; color: rgba(243,238,226,.85); text-shadow: 0 0.2cqw 2cqw rgba(0,0,0,.5); }
+  .meta { margin-top: 2.8cqw; font-family: "Noto Serif TC", serif; font-size: 3.5cqw; font-weight: 500; letter-spacing: .5cqw; color: #f3eee2; }
+  .meta .dot { color: var(--gold); margin: 0 1.8cqw; font-weight: 400; }
 
-  /* — 資訊帶（底部，落在最暗處，確保可讀） — */
-  .info { margin-top: auto; padding-top: 3cqw; }
-
-  .section-t { display: flex; align-items: center; gap: 3cqw; margin-bottom: 2.4cqw; }
-  .section-t .t { font-family: "Noto Serif TC", serif; font-weight: 700; font-size: 3.4cqw; letter-spacing: 1.2cqw; color: var(--gold-br); }
-  .section-t .line { flex: 1; height: 1px; background: rgba(216,178,90,.35); }
-
-  .lower { display: grid; grid-template-columns: 1fr auto; gap: 5cqw; align-items: end; }
-
-  /* 獎項（一行一項，精煉） */
-  .prizes { display: flex; flex-direction: column; }
+  /* — 獎項 — */
+  .prizes { margin-top: 6cqw; }
   .prize { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 3cqw;
-    padding: 3cqw 0; border-top: 1px solid rgba(244,239,228,.16); }
-  .prize:first-child { border-top: 0; }
-  .prize .nm { font-family: "Noto Serif TC", serif; font-weight: 700; font-size: 5cqw; letter-spacing: .4cqw; color: #fbf7ec; }
-  .prize .nm i { font-style: normal; font-family: inherit; font-weight: 400; font-size: 2.7cqw; letter-spacing: .3cqw; color: var(--gold-br); margin-left: 1.6cqw; }
-  .prize .am { font-family: "Noto Serif TC", serif; font-weight: 900; font-size: 5cqw; color: var(--gold-br); white-space: nowrap; text-shadow: 0 0.3cqw 2cqw rgba(0,0,0,.5); }
+    padding: 2.3cqw 0; border-top: 1px solid rgba(243,238,226,.14); }
+  .prize:last-child { border-bottom: 1px solid rgba(243,238,226,.14); }
+  .prize .nm { font-family: "Noto Serif TC", serif; font-weight: 500; font-size: 4.3cqw; letter-spacing: .8cqw; color: #f3eee2; }
+  .prize .nm i { font-style: normal; font-weight: 300; font-size: 2.5cqw; letter-spacing: .3cqw; color: rgba(243,238,226,.55); margin-left: 1.8cqw; }
+  .prize .am { font-family: "Noto Serif TC", serif; font-weight: 600; font-size: 4.4cqw; letter-spacing: .3cqw; color: var(--gold); white-space: nowrap; }
 
-  /* QR 報名卡 */
-  .qr-card { text-align: center; }
-  .qr-card .qbox { width: 27cqw; height: 27cqw; background: #fbf7ec; border-radius: 1.4cqw; padding: 1.8cqw; box-shadow: 0 1.4cqw 5cqw rgba(0,0,0,.45); }
-  .qr-card .qbox img { width: 100%; height: 100%; display: block; }
-  .qr-card .qt { margin-top: 2.2cqw; font-family: "Noto Serif TC", serif; font-weight: 900; font-size: 3.7cqw; letter-spacing: .7cqw; color: #fbf7ec; }
-  .qr-card .qs { margin-top: 1cqw; font-size: 2.4cqw; line-height: 1.55; color: rgba(244,239,228,.75); }
+  /* — 報名 — */
+  .enter { margin-top: 6cqw; display: flex; align-items: center; gap: 5cqw; }
+  .enter .qbox { flex: 0 0 auto; width: 20cqw; height: 20cqw; background: #f3eee2; border-radius: 1cqw; padding: 1.4cqw; }
+  .enter .qbox img { width: 100%; height: 100%; display: block; }
+  .enter .et { font-family: "Noto Serif TC", serif; font-weight: 600; font-size: 4.2cqw; letter-spacing: 1cqw; color: #f8f3e8; }
+  .enter .es { margin-top: 1.4cqw; font-size: 2.5cqw; font-weight: 300; letter-spacing: .4cqw; line-height: 1.7; color: rgba(243,238,226,.62); }
 
-  /* 底部條：現場禮 + 得獎公布 */
-  .footline {
-    margin-top: 3.4cqw; padding-top: 3cqw; border-top: 1px solid rgba(216,178,90,.3);
-    display: flex; justify-content: space-between; align-items: center; gap: 3cqw;
-    font-size: 2.4cqw; line-height: 1.55; color: rgba(244,239,228,.78); letter-spacing: .2cqw;
-  }
-  .footline b { color: var(--gold-br); font-weight: 700; }
-  .footline .sig { text-align: right; white-space: nowrap; font-family: "Noto Serif TC", serif; letter-spacing: .6cqw; color: rgba(244,239,228,.6); }
+  /* — 頁尾 — */
+  .foot { margin-top: 5.5cqw; text-align: center; font-size: 2.4cqw; font-weight: 300; letter-spacing: .5cqw; color: rgba(243,238,226,.6); }
+  .foot .dot { color: var(--gold); margin: 0 1.4cqw; }
+  .foot b { font-weight: 500; color: rgba(243,238,226,.85); }
 
-  /* 列印為真 A4，去背景與陰影外框 */
+  /* 列印為真 A4 */
   @page { size: A4 portrait; margin: 0; }
   @media print {
     body { padding: 0; background: #fff; }
@@ -146,61 +111,45 @@
     * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
   }
 
-  /* 小工具提示（不進列印／截圖也無妨） */
   .tip {
     position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 20;
-    background: rgba(16,22,15,.92); color: var(--gold-br); border: 1px solid rgba(216,178,90,.4);
+    background: rgba(13,18,12,.92); color: var(--gold); border: 1px solid rgba(205,170,98,.35);
     font-size: 12px; letter-spacing: .5px; padding: 9px 14px; border-radius: 999px;
     display: flex; align-items: center; gap: 9px; box-shadow: 0 6px 24px rgba(0,0,0,.4);
   }
-  .tip button { background: var(--gold-br); color: #10160f; border: 0; font-weight: 800; font-size: 12px; padding: 6px 12px; border-radius: 999px; cursor: pointer; letter-spacing: .5px; }
+  .tip button { background: var(--gold); color: #10160f; border: 0; font-weight: 700; font-size: 12px; padding: 6px 12px; border-radius: 999px; cursor: pointer; letter-spacing: .5px; }
   .tip .x { opacity: .6; cursor: pointer; font-weight: 700; padding: 0 2px; }
 </style>
 </head>
 <body>
   <div class="sheet">
-    <div class="bg"><img src="assets/banner.webp" alt="鹿芝谷 蝶影 · 2026 紫斑蝶攝影競賽 主視覺" /></div>
     <div class="scrim"></div>
-    <div class="tint"></div>
-    <div class="frame"></div>
 
     <div class="content">
-      <!-- 刊頭 -->
-      <div class="masthead"><span class="rule"></span>鹿芝谷 · DEER VALLEY<span class="rule"></span></div>
-
-      <!-- 主標 -->
-      <div class="hero">
-        <div class="kicker">2026 攝影競賽</div>
+      <div class="head">
+        <div class="kicker">鹿芝谷 · DEER VALLEY · 2026</div>
         <h1 class="title">蝶影</h1>
         <div class="sub">紫斑蝶攝影競賽</div>
-        <p class="tag">拍下你眼中最美的紫色風景</p>
-        <div class="meta">
-          <div class="cell"><div class="ck">活動期間</div><div class="cv">即日起 — 8/31</div></div>
-          <div class="cell"><div class="ck">參加費用</div><div class="cv">免費參與</div></div>
+        <div class="rule"></div>
+        <div class="tag">拍下你眼中最美的紫色風景</div>
+        <div class="meta">即日起 — 8/31<span class="dot">·</span>免費參與</div>
+      </div>
+
+      <div class="prizes">
+        <div class="prize"><span class="nm">金獎<i>1 名</i></span><span class="am">NT$5,000</span></div>
+        <div class="prize"><span class="nm">美感獎<i>2 名</i></span><span class="am">NT$2,000</span></div>
+        <div class="prize"><span class="nm">人氣獎<i>1 名</i></span><span class="am">精美禮包</span></div>
+      </div>
+
+      <div class="enter">
+        <div class="qbox"><img src="assets/qr.png" alt="掃碼前往報名上傳頁" /></div>
+        <div>
+          <div class="et">掃碼報名</div>
+          <div class="es">填姓名・電話，上傳照片即完成</div>
         </div>
       </div>
 
-      <!-- 資訊帶 -->
-      <div class="info">
-        <div class="section-t"><span class="t">獎項</span><span class="line"></span></div>
-        <div class="lower">
-          <div class="prizes">
-            <div class="prize"><span class="nm">金獎<i>1 名</i></span><span class="am">NT$5,000</span></div>
-            <div class="prize"><span class="nm">美感獎<i>2 名</i></span><span class="am">NT$2,000</span></div>
-            <div class="prize"><span class="nm">人氣獎<i>1 名</i></span><span class="am">精美禮包</span></div>
-          </div>
-
-          <div class="qr-card">
-            <div class="qbox"><img src="assets/qr.png" alt="掃碼前往報名上傳頁" /></div>
-            <div class="qt">掃碼報名</div>
-          </div>
-        </div>
-
-        <div class="footline">
-          <span>現場打卡標註官方帳號送鑰匙圈</span>
-          <span class="sig">得獎公布 <b>2026 / 9 / 15</b></span>
-        </div>
-      </div>
+      <div class="foot">現場打卡標註官方帳號送鑰匙圈<span class="dot">·</span>得獎公布 <b>2026 / 9 / 15</b></div>
     </div>
   </div>
 
