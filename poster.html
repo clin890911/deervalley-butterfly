@@ -48,11 +48,11 @@
     position: absolute; inset: 0;
     background:
       linear-gradient(180deg,
-        rgba(12,17,10,.88) 0%,
-        rgba(12,17,10,.52) 14%,
-        rgba(12,17,10,.42) 32%,
-        rgba(12,17,10,.60) 58%,
-        rgba(10,14,9,.93) 80%,
+        rgba(12,17,10,.93) 0%,
+        rgba(12,17,10,.84) 18%,
+        rgba(12,17,10,.82) 40%,
+        rgba(12,17,10,.58) 58%,
+        rgba(10,14,9,.88) 74%,
         rgba(9,12,8,.97) 100%);
   }
   .tint { position: absolute; inset: 0; background: radial-gradient(120% 80% at 50% 46%, rgba(47,74,60,.18), transparent 70%); mix-blend-mode: soft-light; }
@@ -112,14 +112,14 @@
 
   .lower { display: grid; grid-template-columns: 1fr auto; gap: 5cqw; align-items: end; }
 
-  /* 獎項（精煉三列） */
+  /* 獎項（一行一項，精煉） */
   .prizes { display: flex; flex-direction: column; }
-  .prize { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: .3cqw 3cqw;
-    padding: 1.9cqw 0; border-top: 1px solid rgba(244,239,228,.16); }
+  .prize { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 3cqw;
+    padding: 3cqw 0; border-top: 1px solid rgba(244,239,228,.16); }
   .prize:first-child { border-top: 0; }
-  .prize .rk { grid-column: 1 / -1; font-size: 2.2cqw; letter-spacing: .7cqw; font-weight: 800; color: var(--gold-br); }
-  .prize .nm { font-family: "Noto Serif TC", serif; font-weight: 700; font-size: 4cqw; letter-spacing: .3cqw; color: #fbf7ec; }
-  .prize .am { font-family: "Noto Serif TC", serif; font-weight: 900; font-size: 4.8cqw; color: var(--gold-br); white-space: nowrap; text-shadow: 0 0.3cqw 2cqw rgba(0,0,0,.5); }
+  .prize .nm { font-family: "Noto Serif TC", serif; font-weight: 700; font-size: 5cqw; letter-spacing: .4cqw; color: #fbf7ec; }
+  .prize .nm i { font-style: normal; font-family: inherit; font-weight: 400; font-size: 2.7cqw; letter-spacing: .3cqw; color: var(--gold-br); margin-left: 1.6cqw; }
+  .prize .am { font-family: "Noto Serif TC", serif; font-weight: 900; font-size: 5cqw; color: var(--gold-br); white-space: nowrap; text-shadow: 0 0.3cqw 2cqw rgba(0,0,0,.5); }
 
   /* QR 報名卡 */
   .qr-card { text-align: center; }
@@ -173,7 +173,7 @@
         <div class="kicker">2026 攝影競賽</div>
         <h1 class="title">蝶影</h1>
         <div class="sub">紫斑蝶攝影競賽</div>
-        <p class="tag">當紫斑蝶展翅，山林也染上流動的光影。<br>拍下你眼中最美的紫色風景。</p>
+        <p class="tag">拍下你眼中最美的紫色風景</p>
         <div class="meta">
           <div class="cell"><div class="ck">活動期間</div><div class="cv">即日起 — 8/31</div></div>
           <div class="cell"><div class="ck">參加費用</div><div class="cv">免費參與</div></div>
@@ -182,36 +182,23 @@
 
       <!-- 資訊帶 -->
       <div class="info">
-        <div class="section-t"><span class="t">獎項與報名</span><span class="line"></span></div>
+        <div class="section-t"><span class="t">獎項</span><span class="line"></span></div>
         <div class="lower">
           <div class="prizes">
-            <div class="prize">
-              <span class="rk">金獎 · GOLD · 1 名</span>
-              <span class="nm">飛舞之眼金獎</span>
-              <span class="am">NT$5,000</span>
-            </div>
-            <div class="prize">
-              <span class="rk">美感獎 · SILVER · 2 名</span>
-              <span class="nm">自然美感獎</span>
-              <span class="am">NT$2,000</span>
-            </div>
-            <div class="prize">
-              <span class="rk">人氣獎 · POPULAR · 1 名</span>
-              <span class="nm">社群人氣獎</span>
-              <span class="am">禮包</span>
-            </div>
+            <div class="prize"><span class="nm">金獎<i>1 名</i></span><span class="am">NT$5,000</span></div>
+            <div class="prize"><span class="nm">美感獎<i>2 名</i></span><span class="am">NT$2,000</span></div>
+            <div class="prize"><span class="nm">人氣獎<i>1 名</i></span><span class="am">精美禮包</span></div>
           </div>
 
           <div class="qr-card">
             <div class="qbox"><img src="assets/qr.png" alt="掃碼前往報名上傳頁" /></div>
             <div class="qt">掃碼報名</div>
-            <div class="qs">填姓名・電話<br>上傳照片即完成</div>
           </div>
         </div>
 
         <div class="footline">
-          <span>現場拍照標註官方帳號<br>即可領 <b>可愛鑰匙圈</b>（送完為止）</span>
-          <span class="sig">得獎公布 <b>2026 / 9 / 15</b><br>蝶影 · VOL. 2026</span>
+          <span>現場打卡標註官方帳號送鑰匙圈</span>
+          <span class="sig">得獎公布 <b>2026 / 9 / 15</b></span>
         </div>
       </div>
     </div>
