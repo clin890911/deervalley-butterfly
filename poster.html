@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>蝶影 · 2026 紫斑蝶攝影競賽｜活動海報 — 鹿芝谷</title>
+<meta name="description" content="鹿芝谷 2026 紫斑蝶攝影競賽「蝶影」活動海報。即日起至 8/31，拍下你眼中的紫色風景，金獎 NT$5,000。" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="蝶影 · 2026 紫斑蝶攝影競賽｜活動海報 — 鹿芝谷" />
+<meta property="og:description" content="即日起至 8/31，拍下你眼中的紫色風景。金獎 NT$5,000，免費參與。" />
+<meta property="og:image" content="https://clin890911.github.io/deervalley-butterfly/assets/og.jpg" />
+<meta property="og:url" content="https://clin890911.github.io/deervalley-butterfly/poster.html" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" type="image/png" href="assets/favicon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #17221c;
+    --paper: #f1ebdd;
+    --paper2: #e8e0cd;
+    --forest: #2f4a3c;
+    --forest-deep: #1b2a22;
+    --mist: #6b8f7a;
+    --cream: #f4efe4;
+    --gold: #a97f2b;      /* 深金：印在米色上 */
+    --gold-br: #c9a24b;   /* 亮金：印在深綠上 */
+    --serif: "Noto Serif TC", "Songti TC", serif;
+  }
+  * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Noto Sans TC", sans-serif;
+    color: var(--cream); background: #10160f; -webkit-text-size-adjust: 100%;
+    display: flex; justify-content: center;
+  }
+
+  /* ===== 海報主體（直式，適合整頁截圖分享） ===== */
+  .poster {
+    position: relative; width: 100%; max-width: 480px; min-height: 100vh;
+    background: var(--forest-deep);
+    background-image:
+      radial-gradient(120% 60% at 50% -10%, rgba(47,74,60,.9) 0%, transparent 60%),
+      linear-gradient(180deg, #21362b 0%, #1b2a22 40%, #151f19 100%);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+  }
+  /* 細緻邊框裝飾 */
+  .frame {
+    position: absolute; inset: 14px; border: 1px solid rgba(201,162,75,.35);
+    pointer-events: none; z-index: 3;
+  }
+  .frame::before, .frame::after {
+    content: "蝶"; position: absolute; font-family: var(--serif); font-size: 13px;
+    color: var(--gold-br); background: var(--forest-deep); padding: 0 6px;
+  }
+  .frame::before { top: -9px; left: 50%; transform: translateX(-50%); }
+  .frame::after  { bottom: -9px; left: 50%; transform: translateX(-50%); }
+
+  .inner { position: relative; z-index: 2; padding: 40px 34px 34px; display: flex; flex-direction: column; flex: 1; }
+
+  /* 刊頭 */
+  .brand {
+    display: flex; align-items: center; gap: 10px; justify-content: center;
+    font-size: 11px; letter-spacing: 4px; font-weight: 700; color: rgba(244,239,228,.8);
+  }
+  .brand .rule { width: 34px; height: 1px; background: rgba(201,162,75,.55); }
+  .kicker {
+    text-align: center; margin-top: 26px;
+    font-size: 12px; letter-spacing: 6px; font-weight: 700; color: var(--gold-br);
+  }
+  .title {
+    text-align: center; margin: 12px 0 0; font-family: var(--serif); font-weight: 900;
+    font-size: 68px; line-height: .96; letter-spacing: 4px; color: var(--cream);
+    text-shadow: 0 2px 30px rgba(0,0,0,.4);
+  }
+  .subtitle {
+    text-align: center; margin-top: 16px; font-family: var(--serif);
+    font-size: 20px; letter-spacing: 3px; font-weight: 600; color: rgba(244,239,228,.92);
+  }
+  .lede {
+    text-align: center; margin: 16px auto 0; max-width: 20em;
+    font-size: 13.5px; line-height: 1.95; color: rgba(244,239,228,.72);
+  }
+
+  /* 主視覺影像帶 */
+  .hero {
+    margin: 26px -34px; position: relative; height: 172px; overflow: hidden;
+    border-top: 1px solid rgba(201,162,75,.28); border-bottom: 1px solid rgba(201,162,75,.28);
+  }
+  .hero img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(1.05); }
+  .hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,42,34,.4), rgba(27,42,34,.15) 40%, rgba(27,42,34,.55)); }
+
+  /* 重點資訊列 */
+  .facts { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: rgba(201,162,75,.22); border: 1px solid rgba(201,162,75,.22); border-radius: 4px; overflow: hidden; }
+  .fact { background: rgba(20,30,24,.55); padding: 15px 16px; }
+  .fact.full { grid-column: 1 / -1; }
+  .fact .k { font-size: 10.5px; letter-spacing: 3px; font-weight: 700; color: var(--gold-br); }
+  .fact .v { margin-top: 6px; font-size: 15px; line-height: 1.55; color: var(--cream); font-weight: 600; }
+  .fact .v small { display: block; font-weight: 400; font-size: 12px; color: rgba(244,239,228,.62); letter-spacing: .5px; margin-top: 3px; }
+
+  /* 段標 */
+  .heading { display: flex; align-items: center; gap: 12px; margin: 30px 0 16px; }
+  .heading .t { font-family: var(--serif); font-weight: 700; font-size: 18px; letter-spacing: 4px; color: var(--cream); }
+  .heading .line { flex: 1; height: 1px; background: rgba(201,162,75,.3); }
+  .heading .no { font-family: var(--serif); font-weight: 900; font-size: 20px; color: var(--gold-br); }
+
+  /* 獎項 */
+  .prizes { display: flex; flex-direction: column; }
+  .prize { display: grid; grid-template-columns: 1fr auto; align-items: baseline; gap: 4px 12px; padding: 14px 0; border-top: 1px solid rgba(244,239,228,.14); }
+  .prize:first-child { border-top: 0; }
+  .prize .rank { grid-column: 1 / -1; font-size: 10.5px; letter-spacing: 3px; font-weight: 800; color: var(--gold-br); }
+  .prize .name { font-family: var(--serif); font-weight: 700; font-size: 19px; letter-spacing: 1px; color: var(--cream); }
+  .prize .amt { font-family: var(--serif); font-weight: 900; font-size: 24px; color: var(--gold-br); white-space: nowrap; }
+  .prize .sub { grid-column: 1 / -1; font-size: 11.5px; color: rgba(244,239,228,.6); line-height: 1.55; }
+
+  /* 現場獎勵小卡 */
+  .bonus {
+    margin-top: 18px; padding: 15px 16px; border-radius: 4px;
+    background: rgba(201,162,75,.1); border: 1px dashed rgba(201,162,75,.45);
+    font-size: 12.5px; line-height: 1.8; color: rgba(244,239,228,.85);
+  }
+  .bonus b { color: var(--gold-br); font-weight: 700; }
+
+  /* 報名 QR 區 */
+  .join { margin-top: 30px; display: flex; align-items: center; gap: 18px; padding: 20px; border-radius: 6px; background: var(--cream); color: var(--ink); }
+  .join .qr { flex: 0 0 auto; width: 108px; height: 108px; background: #fff; border-radius: 4px; padding: 6px; }
+  .join .qr img { width: 100%; height: 100%; display: block; }
+  .join .jt { font-family: var(--serif); font-weight: 900; font-size: 21px; letter-spacing: 2px; color: var(--forest-deep); }
+  .join .js { margin-top: 7px; font-size: 12.5px; line-height: 1.7; color: #55503f; }
+  .join .url { margin-top: 9px; font-size: 11px; letter-spacing: .5px; color: var(--gold); font-weight: 700; word-break: break-all; }
+
+  /* 頁尾 */
+  .foot { margin-top: auto; padding-top: 26px; text-align: center; }
+  .foot .announce { font-size: 12px; letter-spacing: 1px; color: rgba(244,239,228,.7); line-height: 1.8; }
+  .foot .announce b { color: var(--gold-br); }
+  .foot .sig { margin-top: 16px; font-family: var(--serif); font-size: 12px; letter-spacing: 4px; color: rgba(244,239,228,.5); }
+
+  /* 分享提示（不進截圖也無妨；提醒使用者可長截圖） */
+  .tip {
+    position: fixed; left: 50%; bottom: 14px; transform: translateX(-50%); z-index: 10;
+    background: rgba(23,34,28,.9); color: var(--gold-br); border: 1px solid rgba(201,162,75,.4);
+    font-size: 11px; letter-spacing: 1px; padding: 9px 16px; border-radius: 999px;
+    display: flex; align-items: center; gap: 7px; box-shadow: 0 6px 24px rgba(0,0,0,.35);
+  }
+  .tip svg { width: 14px; height: 14px; }
+  .tip .x { margin-left: 4px; opacity: .7; cursor: pointer; font-weight: 700; }
+  @media print { .tip { display: none; } }
+
+  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .inner > * { opacity: 0; animation: rise .55s cubic-bezier(.22,.61,.36,1) forwards; }
+  .inner > *:nth-child(2){animation-delay:.05s} .inner > *:nth-child(3){animation-delay:.1s}
+  .inner > *:nth-child(4){animation-delay:.15s} .inner > *:nth-child(5){animation-delay:.2s}
+  .inner > *:nth-child(n+6){animation-delay:.25s}
+  @media (prefers-reduced-motion: reduce) { .inner > * { opacity: 1; animation: none; } }
+</style>
+</head>
+<body>
+  <div class="poster">
+    <div class="frame"></div>
+    <div class="inner">
+
+      <div class="brand"><span class="rule"></span>鹿芝谷 · DEER VALLEY<span class="rule"></span></div>
+
+      <div class="kicker">2026 攝影競賽</div>
+      <h1 class="title">蝶影</h1>
+      <div class="subtitle">紫斑蝶攝影競賽</div>
+      <p class="lede">當紫斑蝶展翅，山林也染上流動的光影。<br>拍下你眼中最美的紫色風景。</p>
+
+      <div class="hero">
+        <img src="assets/banner.webp" alt="鹿芝谷 蝶影 · 2026 紫斑蝶攝影競賽 主視覺" />
+      </div>
+
+      <div class="facts">
+        <div class="fact"><div class="k">活動期間</div><div class="v">即日起 — 8/31<small>2026 年 8 月 31 日止</small></div></div>
+        <div class="fact"><div class="k">參加對象</div><div class="v">免費參與<small>遊客・親子・攝影同好</small></div></div>
+        <div class="fact full"><div class="k">參賽方式</div><div class="v">於鹿芝谷園區實地拍攝紫斑蝶，掃碼上傳作品<small>須為 2026 年園區內實拍，禁盜圖與 AI 合成</small></div></div>
+      </div>
+
+      <div class="heading"><span class="no">01</span><span class="t">獎項</span><span class="line"></span></div>
+      <div class="prizes">
+        <div class="prize">
+          <span class="rank">金獎 · GOLD · 1 名</span>
+          <span class="name">飛舞之眼金獎</span>
+          <span class="amt">NT$5,000</span>
+          <span class="sub">豪華紀念禮包 ＋ 參與獎狀</span>
+        </div>
+        <div class="prize">
+          <span class="rank">美感獎 · SILVER · 2 名</span>
+          <span class="name">自然美感獎</span>
+          <span class="amt">NT$2,000</span>
+          <span class="sub">豐富紀念禮包 ＋ 參與獎狀</span>
+        </div>
+        <div class="prize">
+          <span class="rank">人氣獎 · POPULAR · 1 名</span>
+          <span class="name">社群人氣獎</span>
+          <span class="amt">禮包</span>
+          <span class="sub">官方 IG 精選動態開放投票，愛心數最多者獲精美紀念禮包 ＋ 參與獎狀</span>
+        </div>
+      </div>
+
+      <div class="bonus">
+        <b>現場打卡禮 ·</b> 於園區拍照留念，發布貼文或限時動態並標註鹿芝谷官方帳號，至售票櫃台出示，即可領取<b>可愛鑰匙圈乙個</b>（數量有限，送完為止）。
+      </div>
+
+      <div class="heading"><span class="no">02</span><span class="t">立即報名</span><span class="line"></span></div>
+      <div class="join">
+        <div class="qr"><img src="assets/qr.png" alt="掃碼前往報名上傳頁" /></div>
+        <div class="jc">
+          <div class="jt">掃碼上傳作品</div>
+          <div class="js">手機掃描 QR，填姓名、電話、上傳照片即完成報名。</div>
+          <div class="url">clin890911.github.io/deervalley-butterfly</div>
+        </div>
+      </div>
+
+      <div class="foot">
+        <div class="announce">得獎公布 · <b>2026 / 9 / 15（二）11:00</b><br>公布於鹿芝谷官方 Facebook、Instagram、Threads</div>
+        <div class="sig">蝶影 · VOL. 2026 · 鹿芝谷 DEER VALLEY</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="tip" id="tip">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2M12 3v12m0 0 4-4m-4 4-4-4"/></svg>
+    長截圖即可存成海報分享
+    <span class="x" id="tipClose" aria-label="關閉">✕</span>
+  </div>
+  <script>
+    document.getElementById("tipClose").addEventListener("click", () => document.getElementById("tip").style.display = "none");
+  </script>
+</body>
+</html>
